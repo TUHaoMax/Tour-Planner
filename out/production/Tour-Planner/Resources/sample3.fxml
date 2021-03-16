@@ -109,7 +109,7 @@
       </VBox>
    </center>
    <left>
-      <VBox prefHeight="305.0" prefWidth="159.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="LIstBox" prefHeight="305.0" prefWidth="159.0" BorderPane.alignment="CENTER">
          <children>
             <HBox style="-fx-background-color: gray;">
                <children>

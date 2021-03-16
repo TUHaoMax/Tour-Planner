@@ -21,26 +21,15 @@ import java.util.ResourceBundle;
 
 
 
-public class sample implements Initializable{
-    public Label OutputLabel;
-    private final StringProperty output = new SimpleStringProperty("Hello VM!");
-    Random random=new Random();
-
-    public void OutputLabel(){
-        System.out.println("\ntest");
-        this.output.set(this.output.get().concat("\nSWE"));
-
-    }
-
-    public void OutNum(){
-        System.out.println("\ntest");
-        int n=random.nextInt();
-        this.output.set(this.output.get().concat("\n"+String.valueOf(n)));
-    }
+public class SampleController implements Initializable{
+     @FXML
+     private ListView<String> ListTours;
+     String[] test={"T1","T2","T3"};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        Bindings.bindBidirectional(OutputLabel.textProperty(),output);
+
+        ListTours.getItems().addAll(test);
 
     }
 }

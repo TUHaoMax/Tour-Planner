@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SampleController">
    <top>
       <VBox prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -122,7 +122,7 @@
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="-" />
                </children>
             </HBox>
-            <ListView prefHeight="280.0" prefWidth="140.0" VBox.vgrow="ALWAYS" />
+            <ListView fx:id="ListTours" prefHeight="280.0" prefWidth="140.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
    </left>

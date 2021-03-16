@@ -13,9 +13,9 @@ public class sample2 extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../Resources/sample2.fxml"));
-        primaryStage.setTitle("sample-2");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("../Resources/sample3.fxml"));
+        primaryStage.setTitle("sample-3");
+        primaryStage.setScene(new Scene(root, 900, 900));
         primaryStage.show();
     }
     public static void main(String[] args) {

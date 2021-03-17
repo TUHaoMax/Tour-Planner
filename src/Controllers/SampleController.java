@@ -46,6 +46,9 @@ public class SampleController implements Initializable{
         sample.showWindow();
     }
 
+    public void deletetour(){
+        ToursData.Dosql(SQL.Tours_Delete,currentTour);
+    }
 
 
       @Override
@@ -54,7 +57,7 @@ public class SampleController implements Initializable{
 
           try {
               while (resultSet.next()){
-                  ListTours.getItems().add(resultSet.getString("Name"));
+                  ListTours.getItems().add(resultSet.getString("name"));
 
               }
           } catch (SQLException throwables) {

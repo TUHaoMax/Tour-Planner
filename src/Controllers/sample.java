@@ -1,6 +1,6 @@
 package Controllers;
 import UI.*;
-
+import Data.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 
 public class sample implements Initializable{
-    public Label OutputLabel;
+   /* public Label OutputLabel;
     private final StringProperty output = new SimpleStringProperty("Hello VM!");
     Random random=new Random();
 
@@ -36,11 +36,20 @@ public class sample implements Initializable{
         System.out.println("\ntest");
         int n=random.nextInt();
         this.output.set(this.output.get().concat("\n"+String.valueOf(n)));
-    }
+    }*/
+     @FXML
+     private TextField insertname;
+
+     public void inserttour(){
+         System.out.println(insertname.textProperty().getValue());
+         ToursData.Dosql(SQL.Tours_insert,insertname.textProperty().getValue());
+
+     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        Bindings.bindBidirectional(OutputLabel.textProperty(),output);
 
     }
 }

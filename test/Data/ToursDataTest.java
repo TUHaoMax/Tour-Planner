@@ -16,10 +16,21 @@ class ToursDataTest implements SQL{
 
         try {
             while (resultSet.next()){
-                System.out.println(resultSet.getString("Name"));
+                System.out.println(resultSet.getString("name"));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    @Test
+    void insert(){
+        String Name="Tour-1";
+        ToursData.Dosql(SQL.Tours_insert,Name);
+    }
+    @Test
+    void delete(){
+        String Name="Tour-1";
+        ToursData.Dosql(SQL.Tours_Delete,Name);
     }
 }

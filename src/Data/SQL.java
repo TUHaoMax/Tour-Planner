@@ -1,10 +1,11 @@
 package Data;
 
 public interface SQL {
-    String Tours_selectall="SELECT \"ID\", \"Name\"\n" +
-            "\tFROM public.\"Tours\";";
+    String Tours_selectall="SELECT * FROM toursinfor";
 
-    String Tours_insert="INSERT INTO public.\"Tours\" VALUES (?, ?)";
+    String Tours_insert="INSERT INTO toursinfor(name) VALUES (?)";
+
+    String Tours_Delete="DELETE FROM toursinfor WHERE name= ?";
     //Tours
 
     //Logs

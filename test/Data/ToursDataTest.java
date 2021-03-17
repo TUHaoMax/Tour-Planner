@@ -13,8 +13,9 @@ class ToursDataTest implements SQL{
     void connect() {
         ResultSet resultSet=ToursData.Getsql(SQL.Tours_selectall);
 
+
         try {
-            if(resultSet.next()){
+            while (resultSet.next()){
                 System.out.println(resultSet.getString("Name"));
             }
         } catch (SQLException throwables) {

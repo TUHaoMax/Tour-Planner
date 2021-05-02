@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="156.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.0" minWidth="10.0" prefWidth="234.66665649414065" />
+      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="205.33334350585938" minWidth="0.0" prefWidth="205.33334350585938" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="127.99999745686848" valignment="CENTER" vgrow="NEVER" />
+      <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="98.6666692097982" valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints maxHeight="378.3333435058593" minHeight="10.0" prefHeight="191.66668701171875" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <TextField fx:id="InputTextField" prefHeight="0.0" prefWidth="296.0" GridPane.columnIndex="1">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </TextField>
+        <Button mnemonicParsing="false" onAction="#calculateOutput" text="Execute" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin>
+        </Button>
+        <Label fx:id="OutputLabel" prefHeight="236.0" prefWidth="361.0" style="-fx-alignment: center;" text="hi" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+                <Font size="47.0" />
+            </font>
+        </Label>
+      <MenuButton mnemonicParsing="false" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#tosample1" text="sample-1" />
+          <MenuItem mnemonicParsing="false" onAction="#tosample2" text="sample-2" />
+        </items>
+      </MenuButton>
+    </children>
+</GridPane>

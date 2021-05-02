@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.sample">
+   <center>
+      <HBox prefHeight="395.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="insertname" alignment="CENTER" prefHeight="25.0" prefWidth="198.0" promptText="Tour Name" />
+            <Button mnemonicParsing="false" onAction="#inserttour" text="Insert" />
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

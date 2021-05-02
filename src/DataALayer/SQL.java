@@ -1,4 +1,4 @@
-package Data;
+package DataALayer;
 
 public interface SQL {
     String Tours_selectall="SELECT * FROM toursinfor";

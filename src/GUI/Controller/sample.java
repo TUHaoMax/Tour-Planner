@@ -1,22 +1,11 @@
-package Controllers;
-import UI.*;
-import Data.*;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+package GUI.Controller;
 
-import java.io.IOException;
+import DataALayer.*;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 

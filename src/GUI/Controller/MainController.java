@@ -1,18 +1,13 @@
-package Controllers;
-import UI.*;
+package GUI.Controller;
 
-import UI.MainViewModel;
-import UI.sample;
+import GUI.VIewModel.MainViewModel;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,28 +23,26 @@ public class MainController implements Initializable {
 
     public MainController()
     {
-        System.out.println("Controller created");
+        System.out.println("GUI.Controller created");
     }
 
     @FXML
     public void calculateOutput(ActionEvent actionEvent) {
-        System.out.println("Controller calculate");
+        System.out.println("GUI.Controller calculate");
         viewModel.calculateOutputString();
     }
     public void tosample1(ActionEvent actionEvent) throws Exception {
-        System.out.println("to sample-1");
-        UI.sample sample=new sample();
-        sample.showWindow();
+        WindowController.Windowlaunch("sample.fxml");
+
     }
     public void tosample2(ActionEvent actionEvent) throws Exception {
-        System.out.println("to sample-2");
-        UI.sample2 sample=new sample2();
-        sample.showWindow();
+        WindowController.Windowlaunch("Main.fxml");
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Controller init");
+        System.out.println("GUI.Controller init");
 
         InputTextField.textProperty().bindBidirectional(viewModel.inputProperty());
 

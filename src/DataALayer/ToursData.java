@@ -1,4 +1,4 @@
-package Data;
+package DataALayer;
 import java.sql.*;
 
 public class ToursData {

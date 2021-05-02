@@ -10,7 +10,8 @@ import java.util.ResourceBundle;
 public class WindowController implements Initializable {
 
     public static void Windowlaunch(String fxmlname)throws Exception{
-       LauncherVModel Launcher=new LauncherVModel(fxmlname);
+       LauncherVModel Launcher=new LauncherVModel();
+       Launcher.fxmlname=fxmlname;
        Launcher.showWindow();
     }
 

@@ -1,6 +1,6 @@
 package GUI.Controller;
 
-import GUI.VIewModel.LauncherVModel;
+import APP.APPLauncher;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -10,9 +10,10 @@ import java.util.ResourceBundle;
 public class WindowController implements Initializable {
 
     public static void Windowlaunch(String fxmlname)throws Exception{
-       LauncherVModel Launcher=new LauncherVModel();
+        APPLauncher Launcher=new APPLauncher();
        Launcher.fxmlname=fxmlname;
        Launcher.showWindow();
+
     }
 
 

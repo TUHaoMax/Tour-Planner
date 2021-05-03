@@ -5,7 +5,7 @@ import GUI.VIewModel.*;
 public class TourPlanner {
     public static void main(String[] args) throws Exception{
         System.out.println("TourPlanner");
-        APPLauncher.fxmlname="MainWindow.fxml";
+        APPLauncher.fxmlname="Main.fxml";
         APPLauncher.main(args);
     }
 }

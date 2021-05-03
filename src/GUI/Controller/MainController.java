@@ -1,52 +1,62 @@
 package GUI.Controller;
 
-import GUI.VIewModel.MainViewModel;
-import javafx.beans.binding.Bindings;
+import GUI.VIewModel.ListViewModel;
+import javafx.scene.control.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class MainController implements Initializable {
 
-    // create custom viewmodel
-    public MainViewModel viewModel = new MainViewModel();
-    public sample sample=new sample();
-    // add fx:id and use intelliJ to create field in controller
-    public TextField InputTextField;
-    public Label OutputLabel;
+public class MainController implements Initializable{
 
-    public MainController()
-    {
-        System.out.println("GUI.Controller created");
-    }
+
+    ListViewModel listView=new ListViewModel();
 
     @FXML
-    public void calculateOutput(ActionEvent actionEvent) {
-        System.out.println("GUI.Controller calculate");
-        viewModel.calculateOutputString();
-    }
-    public void tosample1(ActionEvent actionEvent) throws Exception {
-        WindowController.Windowlaunch("sample.fxml");
+    private ListView<String> ListTours;
+    @FXML
+    private Label TourLabel;
+    @FXML
+    private TextField Tourname;
+    @FXML
+    private Label LogsLabel;
 
-    }
-    public void tosample2(ActionEvent actionEvent) throws Exception {
-        WindowController.Windowlaunch("Main.fxml");
+    String currentTour;
 
+
+    public void tosample(ActionEvent actionEvent)  {
+        int i=listView.addTour(Tourname.textProperty().getValue());
     }
+
+    public void deletetour(ActionEvent actionEvent){
+        int i=listView.deletecurrentTour(currentTour);
+    }
+
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("GUI.Controller init");
+    public void initialize(URL url, ResourceBundle resourceBundle){
 
-        InputTextField.textProperty().bindBidirectional(viewModel.inputProperty());
+        this.ListTours.setItems(listView.getNamelist());
 
-        // OutputLabel.textProperty().bindBidirectional(viewModel.outputProperty());
-        Bindings.bindBidirectional(OutputLabel.textProperty(), viewModel.outputProperty());
+        ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+
+                currentTour=ListTours.getSelectionModel().getSelectedItem();
+                TourLabel.setText(currentTour);
+                LogsLabel.setText(currentTour+" Logs:");
+            }
+        });
+
+        //ListTours.getSelectionModel().selectedItemProperty().addListener( (v,old,newvalue) -> currentTour=newvalue);
+
+
     }
 }
+

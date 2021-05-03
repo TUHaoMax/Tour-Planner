@@ -11,8 +11,7 @@ class ListViewModelTest {
     @Test
     void listviewtest() {
        ListViewModel listView=new ListViewModel();
-        System.out.println(listView.getTourinforlist().get(0));
-
+        System.out.println(listView.getNamelist());
     }
 
 }

@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SampleController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainController">
     <top>
         <VBox prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
@@ -55,6 +55,7 @@
                         <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours information" />
                         <Button mnemonicParsing="false" onAction="#tosample" prefHeight="25.0" prefWidth="37.0" text="+" />
                         <Button mnemonicParsing="false" onAction="#deletetour" prefHeight="25.0" prefWidth="35.0" text="-" />
+                  <Button mnemonicParsing="false" text="Edit" />
                     </children>
                     <padding>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />
@@ -108,11 +109,11 @@
                            <children>
                               <VBox prefHeight="217.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label prefHeight="23.0" prefWidth="387.0" text="Logs" VBox.vgrow="ALWAYS" />
-                                    <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                    <Label fx:id="LogsLabel" prefHeight="23.0" prefWidth="387.0" text="Logs" VBox.vgrow="ALWAYS" />
+                                    <TableView fx:id="TableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn prefWidth="110.6667150259018" text="Date" />
+                                        <TableColumn prefWidth="102.66669464111328" text="Duration" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -125,4 +126,7 @@
         </items>
       </SplitPane>
    </center>
+   <bottom>
+      <Label BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

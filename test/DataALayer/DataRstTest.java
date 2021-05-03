@@ -11,7 +11,7 @@ class DataRstTest {
     @Test
     void getResultSet() {
         ArrayList<ArrayList> testList=new ArrayList<ArrayList>();
-        testList=DataRst.gettourinforResultSet(SQL.Tours_selectall);
+        testList=DataRst.gettourinforResultSet();
         System.out.println(testList.get(1).get(0));
     }
 

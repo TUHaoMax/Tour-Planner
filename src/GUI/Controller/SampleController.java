@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import DataALayer.SQL;
 import DataALayer.ToursData;
+import GUI.VIewModel.ListViewModel;
 import GUI.VIewModel.MainViewModel;
 import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
@@ -23,38 +24,34 @@ public class SampleController implements Initializable{
     }
 
     MainViewModel mainViewModel;
+    ListViewModel listView=new ListViewModel();
 
      @FXML
      private ListView<String> ListTours;
-
      @FXML
      private Label TourLabel;
+     @FXML
+     private TextField Tourname;
 
-      ResultSet resultSet= ToursData.Getsql(SQL.Tours_selectall);
       String currentTour;
 
 
-    public void tosample(ActionEvent actionEvent) throws Exception {
-        WindowController.Windowlaunch("sample.fxml");
+    public void tosample(ActionEvent actionEvent)  {
+       int i=listView.addTour(Tourname.textProperty().getValue());
     }
 
-    public void deletetour(){
-        ToursData.Dosql(SQL.Tours_Delete,currentTour);
+    public void deletetour(ActionEvent actionEvent){
+        int i=listView.deletecurrentTour(currentTour);
     }
 
 
       @Override
       public void initialize(URL url, ResourceBundle resourceBundle){
-        //this.ListTours.setItems(mainViewModel.getTourNames());
+       // this.ListTours.setItems(mainViewModel.getTourNames());
+        //this.ListTours.setItems(listView.getNamelist());
+          System.out.println(listView.getTourinforlist().get(0));
+        this.ListTours.getItems().addAll(listView.getTourinforlist().get(0));
 
-          try {
-              while (resultSet.next()){
-                  ListTours.getItems().add(resultSet.getString("name"));
-
-              }
-          } catch (SQLException throwables) {
-              throwables.printStackTrace();
-          }
 
             ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                 @Override

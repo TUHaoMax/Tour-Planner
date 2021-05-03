@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class DataRst {
 
-    public static ArrayList<ArrayList> gettourinforResultSet(String sqlStr){
+    public static ArrayList<ArrayList> gettourinforResultSet(){
         ArrayList<ArrayList> DataList=new ArrayList<ArrayList>();
         ArrayList<Integer> IDList=new ArrayList<Integer>();
         ArrayList<String> NameList=new ArrayList<String>();
-        ResultSet resultSet= ToursData.Getsql(sqlStr);
+        ResultSet resultSet= ToursData.Getsql(SQL.Tours_selectall);
 
         try {
             while (resultSet.next()) {

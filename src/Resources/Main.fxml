@@ -52,9 +52,9 @@
                 </MenuBar>
                 <HBox>
                     <children>
-                        <TextField prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours information" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="37.0" onAction="#tosample" text="+" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" onAction="#deletetour" text="-" />
+                        <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours information" />
+                        <Button mnemonicParsing="false" onAction="#tosample" prefHeight="25.0" prefWidth="37.0" text="+" />
+                        <Button mnemonicParsing="false" onAction="#deletetour" prefHeight="25.0" prefWidth="35.0" text="-" />
                     </children>
                     <padding>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />
@@ -73,7 +73,7 @@
                <children>
                   <VBox prefHeight="441.0" prefWidth="205.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label  prefHeight="24.0" prefWidth="205.0" text="Tours List" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="24.0" prefWidth="205.0" text="Tours List" VBox.vgrow="ALWAYS" />
                         <ListView fx:id="ListTours" prefHeight="417.0" prefWidth="205.0" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>

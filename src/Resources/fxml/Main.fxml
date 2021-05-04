@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -50,12 +51,14 @@
 
                     </menus>
                 </MenuBar>
-                <HBox>
+                <HBox spacing="10.0">
                     <children>
                         <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours information" />
-                        <Button mnemonicParsing="false" onAction="#tosample" prefHeight="25.0" prefWidth="37.0" text="+" />
-                        <Button mnemonicParsing="false" onAction="#deletetour" prefHeight="25.0" prefWidth="35.0" text="-" />
-                  <Button mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="plus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="37.0" text="+" />
+                        <Button fx:id="minus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="35.0" text="-" />
+                        <Button fx:id="edit" mnemonicParsing="false" onAction="#handle" text="Edit" />
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF" />
                     </children>
                     <padding>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />

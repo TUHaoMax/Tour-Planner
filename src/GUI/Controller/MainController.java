@@ -1,6 +1,8 @@
 package GUI.Controller;
 
 import GUI.VIewModel.ListViewModel;
+import GUI.VIewModel.ReportingViewModel;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,9 +15,9 @@ import java.util.ResourceBundle;
 
 
 
-public class MainController implements Initializable{
+public class MainController implements Initializable, EventHandler<ActionEvent> {
 
-
+    ReportingViewModel reporting=new ReportingViewModel();
     ListViewModel listView=new ListViewModel();
 
     @FXML
@@ -26,17 +28,10 @@ public class MainController implements Initializable{
     private TextField Tourname;
     @FXML
     private Label LogsLabel;
+    @FXML
+    private Button plus,minus,edit,PDF;
 
     String currentTour;
-
-
-    public void tosample(ActionEvent actionEvent)  {
-        int i=listView.addTour(Tourname.textProperty().getValue());
-    }
-
-    public void deletetour(ActionEvent actionEvent){
-        int i=listView.deletecurrentTour(currentTour);
-    }
 
 
     @Override
@@ -56,7 +51,26 @@ public class MainController implements Initializable{
 
         //ListTours.getSelectionModel().selectedItemProperty().addListener( (v,old,newvalue) -> currentTour=newvalue);
 
+    }
 
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        if(actionEvent.getSource()==plus){
+            int i=listView.addTour(Tourname.textProperty().getValue());
+        }
+        if(actionEvent.getSource()==minus){
+            int i=listView.deletecurrentTour(currentTour);
+        }
+        if(actionEvent.getSource()==edit){
+            try {
+                WindowController.Windowlaunch("Tourmanage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(actionEvent.getSource()==PDF){
+            reporting.PDfcreate(currentTour);
+        }
     }
 }
 

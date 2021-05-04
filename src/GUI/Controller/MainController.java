@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import GUI.VIewModel.ListViewModel;
 import GUI.VIewModel.ReportingViewModel;
+import TourModels.TourLogs;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
@@ -30,13 +31,14 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private Label LogsLabel;
     @FXML
     private Button plus,minus,edit,PDF;
+    @FXML
+    private TableView<TourLogs> TableView;
 
     String currentTour;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-
         this.ListTours.setItems(listView.getNamelist());
 
         ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {

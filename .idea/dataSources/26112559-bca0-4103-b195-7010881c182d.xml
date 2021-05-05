@@ -792,7 +792,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1620123277</StartupTime>
+      <StartupTime>1620165188</StartupTime>
     </root>
     <database id="2" parent="1" name="DBS">
       <ObjectId>16400</ObjectId>
@@ -815,7 +815,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>17865</IntrospectionStateNumber>
+      <IntrospectionStateNumber>17869</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|35395|35397|1
 sequence|table|35382|35376|2
@@ -2418,7 +2418,7 @@ sequence|table|35382|35376|2
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>17866</IntrospectionStateNumber>
+      <IntrospectionStateNumber>17870</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="4" name="plpgsql">
@@ -110561,11 +110561,11 @@ umserver</ColNames>
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>pg_lsn|0s</DataType>
     </argument>
-    <column id="16105" parent="5143" name="logid">
+    <column id="16105" parent="5143" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>17855</StateNumber>
+      <StateNumber>17868</StateNumber>
       <DefaultExpression>nextval(&apos;logs_logid_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
@@ -110590,7 +110590,7 @@ umserver</ColNames>
     <index id="16109" parent="5143" name="logs_pk">
       <ObjectId>35401</ObjectId>
       <StateNumber>17855</StateNumber>
-      <ColNames>logid</ColNames>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
@@ -110600,7 +110600,7 @@ umserver</ColNames>
     <key id="16110" parent="5143" name="logs_pk">
       <ObjectId>35402</ObjectId>
       <StateNumber>17855</StateNumber>
-      <ColNames>logid</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>logs_pk</UnderlyingIndexName>
     </key>

@@ -17,4 +17,10 @@ class ReportingViewModelTest {
         System.out.println(rpm.getMsg());
 
     }
+    @Test
+    void Date(){
+        ReportingViewModel rpm=new ReportingViewModel();
+        rpm.getDatetime();
+        System.out.println(rpm.getDate());
+    }
 }

@@ -1,7 +1,7 @@
 package DataALayer;
 
 public interface SQL {
-    String Tours_selectall="SELECT * FROM toursinfor";
+    String Tours_selectall="SELECT * FROM toursinfor order by id";
 
     String Tours_insert="INSERT INTO toursinfor(name) VALUES (?)";
 
@@ -11,4 +11,5 @@ public interface SQL {
     //Logs
     String Logs_selectToursid="select * from Logs where ToursId= ?";
 
+    String Logs_selectall="SELECT * FROM logs order by id";
 }

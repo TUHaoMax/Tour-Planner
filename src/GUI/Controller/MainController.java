@@ -52,9 +52,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
 
 
-        //ObservableList<TourLogs> tourLogs= FXCollections.observableArrayList();
-        //tourLogs.add(new TourLogs("2021-05-01","test1"));
-        //tourLogs.add(new TourLogs("2021-05-02","test2"));
+
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
 

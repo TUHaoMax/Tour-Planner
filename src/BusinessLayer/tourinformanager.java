@@ -10,22 +10,24 @@ import java.util.ArrayList;
 @Setter
 public class tourinformanager  {
 
-    public ArrayList<ArrayList> tourinforlist=new ArrayList<>();
-    public int index=0;
-    public String Departure;
-    public String destination;
-    public String name;
+    public  ArrayList<ArrayList> tourinforlist;
+    public  int index=0;
+    public  String Departure;
+    public  String destination;
+    public  String Name;
+    public  int TourId;
 
     public tourinformanager() {
-        this.tourinforlist= DataRst.gettourinforResultSet();
+        tourinforlist= DataRst.gettourinforResultSet();
     }
 
-
-    public void settour(String name){
-         this.index=tourinforlist.get(0).indexOf(name);
-         this.Departure= (String) tourinforlist.get(1).get(index);
-         this.destination= (String) tourinforlist.get(2).get(index);
-         this.name=name;
+    public  void settour(String name){
+        tourinforlist= DataRst.gettourinforResultSet();
+         index=tourinforlist.get(0).indexOf(name);
+         Departure= (String) tourinforlist.get(1).get(index);
+         destination= (String) tourinforlist.get(2).get(index);
+         TourId= (int) tourinforlist.get(3).get(index);
+         Name=name;
     }
 
 

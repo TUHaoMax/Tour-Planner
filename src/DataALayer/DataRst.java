@@ -36,14 +36,14 @@ public class DataRst {
 
     }
 
-    public static ArrayList<ArrayList> getlogsResultSet(){
+    public static ArrayList<ArrayList> getlogsResultSet(int tid){
         ArrayList<ArrayList> DataList=new ArrayList<ArrayList>();
         ArrayList<Integer> IDList=new ArrayList<Integer>();
         ArrayList<Date> DateList=new ArrayList<Date>();
         ArrayList<Time> durationList=new ArrayList<>();
         ArrayList<Integer> TouridList=new ArrayList<>();
 
-        ResultSet resultSet= ToursData.Getsql(SQL.Tours_selectall);
+        ResultSet resultSet= ToursData.Getsql(SQL.Logs_selectToursid,tid);
 
         try {
             while (resultSet.next()) {
@@ -58,7 +58,8 @@ public class DataRst {
 
         DataList.add(IDList);
         DataList.add(DateList);
-
+        DataList.add(durationList);
+        DataList.add(TouridList);
         return DataList;
 
     }

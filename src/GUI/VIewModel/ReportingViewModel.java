@@ -39,7 +39,7 @@ public class ReportingViewModel {
     protected void Creatmsg(String name){
         tourinformanager tim=new tourinformanager();
         tim.settour(name);
-        msg=msg.concat("Tour Name: ").concat(tim.name+"\n")
+        msg=msg.concat("Tour Name: ").concat(tim.Name+"\n")
                 .concat("Departure: ").concat(tim.Departure+"\n")
                 .concat("destination: ").concat(tim.destination+"\n");
     }

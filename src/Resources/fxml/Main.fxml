@@ -115,8 +115,8 @@
                                     <Label fx:id="LogsLabel" prefHeight="23.0" prefWidth="387.0" text="Logs" VBox.vgrow="ALWAYS" />
                                     <TableView fx:id="TableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn prefWidth="110.6667150259018" text="Date" />
-                                        <TableColumn prefWidth="102.66669464111328" text="Duration" />
+                                        <TableColumn fx:id="Date" prefWidth="110.6667150259018" text="Date" />
+                                        <TableColumn fx:id="Time" prefWidth="102.66669464111328" text="Duration" />
                                       </columns>
                                     </TableView>
                                  </children>

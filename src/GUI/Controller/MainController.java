@@ -1,15 +1,18 @@
 package GUI.Controller;
 
+import BusinessLayer.tourinformanager;
 import GUI.VIewModel.ListViewModel;
 import GUI.VIewModel.ReportingViewModel;
+import GUI.VIewModel.TableViewModel;
 import TourModels.TourLogs;
-import javafx.event.EventHandler;
-import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +23,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
     ReportingViewModel reporting=new ReportingViewModel();
     ListViewModel listView=new ListViewModel();
+    TableViewModel tableViewModel=new TableViewModel();
+    tourinformanager tim=new tourinformanager();
 
     @FXML
     private ListView<String> ListTours;
@@ -32,22 +37,39 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @FXML
     private Button plus,minus,edit,PDF;
     @FXML
+    private TableColumn<TourLogs,String> Date,Time;
+
+    @FXML
     private TableView<TourLogs> TableView;
 
-    String currentTour;
 
+    String currentTour;
+    int currentTourId;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         this.ListTours.setItems(listView.getNamelist());
+
+
+
+        //ObservableList<TourLogs> tourLogs= FXCollections.observableArrayList();
+        //tourLogs.add(new TourLogs("2021-05-01","test1"));
+        //tourLogs.add(new TourLogs("2021-05-02","test2"));
+        Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
+        Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
+
+
 
         ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
 
                 currentTour=ListTours.getSelectionModel().getSelectedItem();
-                TourLabel.setText(currentTour);
-                LogsLabel.setText(currentTour+" Logs:");
+                tim.settour(currentTour);
+                currentTourId= tim.TourId;
+                TourLabel.setText(currentTour+" "+currentTourId);
+                LogsLabel.setText(currentTour+" "+currentTourId+" Logs:");
+                TableView.setItems(tableViewModel.settourLogs(currentTourId));
             }
         });
 

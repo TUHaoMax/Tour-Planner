@@ -25,7 +25,6 @@ public class ListViewModel {
 
     private void obserlist(){
         tourinformanager tim=new tourinformanager();
-
         this.namelist.clear();
         this.namelist.addAll(tim.tourinforlist.get(0));
     }

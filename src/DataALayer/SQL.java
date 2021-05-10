@@ -9,7 +9,8 @@ public interface SQL {
     //Tours
 
     //Logs
-    String Logs_selectToursid="select * from Logs where ToursId= ?";
+    String Logs_selectToursid="select * from Logs where tourid= ? order by id";
 
     String Logs_selectall="SELECT * FROM logs order by id";
+
 }

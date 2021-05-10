@@ -50,14 +50,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     public void initialize(URL url, ResourceBundle resourceBundle){
         this.ListTours.setItems(listView.getNamelist());
 
-
-
-        //ObservableList<TourLogs> tourLogs= FXCollections.observableArrayList();
-        //tourLogs.add(new TourLogs("2021-05-01","test1"));
-        //tourLogs.add(new TourLogs("2021-05-02","test2"));
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
-
 
 
         ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {

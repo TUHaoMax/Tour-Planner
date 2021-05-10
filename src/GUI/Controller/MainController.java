@@ -50,12 +50,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     public void initialize(URL url, ResourceBundle resourceBundle){
         this.ListTours.setItems(listView.getNamelist());
 
-
-
-
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
-
 
 
         ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {

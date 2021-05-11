@@ -18,4 +18,9 @@ class DataRstTest {
         System.out.println(testList.get(1).get(i));
     }
 
+    @Test
+    void Ordertest(){
+
+    }
+
 }

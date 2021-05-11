@@ -7,6 +7,7 @@ import GUI.VIewModel.TableViewModel;
 import TourModels.TourLogs;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import java.util.function.Predicate;
 
 
 public class MainController implements Initializable, EventHandler<ActionEvent> {
@@ -33,7 +34,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @FXML
     private TextField Tourname;
     @FXML
-    private Label LogsLabel;
+    private Label LogsLabel,TourListLabel;
     @FXML
     private Button plus,minus,edit,PDF;
     @FXML
@@ -52,6 +53,31 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
+
+
+        Tourname.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                if(t1.equals("")){
+                    TourListLabel.setText("Tours List");
+                }else {
+                    TourListLabel.setText(t1);
+                }
+                FilteredList<String> FL=listView.getNamelist().filtered(new Predicate<String>() {
+                    @Override
+                    public boolean test(String s) {
+                        if(s.contains(Tourname.getText())){
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+
+                    }
+                });
+                ListTours.setItems(FL);
+            }
+        });
 
 
         ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {

@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +23,7 @@ import java.util.function.Predicate;
 
 
 public class MainController implements Initializable, EventHandler<ActionEvent> {
+    private static final Logger logger= LoggerFactory.getLogger(MainController.class);
 
     ReportingViewModel reporting=new ReportingViewModel();
     ListViewModel listView=new ListViewModel();
@@ -67,12 +70,14 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                     @Override
                     public boolean test(String s) {
                         if(s.contains(Tourname.getText())){
+                            if(!Tourname.getText().equals("")){
+                                logger.debug("Tour finded {}",s);
+                            }
                             return true;
                         }
                         else {
                             return false;
                         }
-
                     }
                 });
                 ListTours.setItems(FL);

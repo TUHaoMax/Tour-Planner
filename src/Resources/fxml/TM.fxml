@@ -22,7 +22,10 @@
                         <tabs>
                             <Tab text="Route">
                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="test" layoutX="211.0" layoutY="87.0" mnemonicParsing="false" onAction="#handle" text="Button" />
+                           </children></AnchorPane>
                                 </content>
                             </Tab>
                             <Tab text="Description">
@@ -51,19 +54,19 @@
                                           </VBox>
                                           <VBox prefHeight="71.0" prefWidth="117.0" spacing="30.0">
                                              <children>
-                                                <Label prefHeight="17.0" prefWidth="57.0" text="Label">
+                                                <Label prefHeight="21.0" prefWidth="119.0" text="Departure">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="17.0" prefWidth="63.0" text="Label">
+                                                <Label prefHeight="21.0" prefWidth="120.0" text="destination">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
                                              </children>
                                           </VBox>
-                                          <Button contentDisplay="CENTER" mnemonicParsing="false" text="Button" />
+                                          <Button contentDisplay="CENTER" mnemonicParsing="false" text="ADD" />
                                        </children>
                                     </HBox>
                                     <Label prefHeight="34.0" prefWidth="500.0" text="Add Log :" VBox.vgrow="ALWAYS">
@@ -82,32 +85,42 @@
                                           </VBox>
                                           <VBox prefHeight="138.0" prefWidth="110.0" spacing="30.0">
                                              <children>
-                                                <Label prefHeight="17.0" prefWidth="114.0" text="Label">
+                                                <Label prefHeight="17.0" prefWidth="114.0" text="Data">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="26.0" prefWidth="118.0" text="Label">
+                                                <Label prefHeight="26.0" prefWidth="118.0" text="Duration">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="17.0" prefWidth="111.0" text="Label">
+                                                <Label prefHeight="17.0" prefWidth="111.0" text="Distance">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
                                                 </Label>
                                              </children>
                                           </VBox>
-                                          <VBox prefHeight="91.0" prefWidth="100.0" spacing="35.0">
+                                          <VBox prefHeight="91.0" prefWidth="100.0" spacing="12.0">
                                              <children>
+                                                <Label prefHeight="39.0" prefWidth="100.0" text="Rating">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
                                                 <Spinner editable="true" max="10" min="1" prefHeight="25.0" prefWidth="190.0" />
-                                                <ChoiceBox prefWidth="150.0" />
+                                                <Label prefHeight="17.0" prefWidth="101.0" text="Weather">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="WeatherCB" prefWidth="150.0" />
                                              </children>
                                           </VBox>
                                           <VBox alignment="CENTER" prefHeight="138.0" prefWidth="104.0">
                                              <children>
-                                                <Button mnemonicParsing="false" text="Button" />
+                                                <Button mnemonicParsing="false" text="ADD" />
                                              </children>
                                           </VBox>
                                        </children>
@@ -120,7 +133,7 @@
                                     <HBox alignment="CENTER_LEFT" prefHeight="165.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <TextArea prefHeight="165.0" prefWidth="423.0" HBox.hgrow="ALWAYS" />
-                                          <Button mnemonicParsing="false" text="Button" />
+                                          <Button mnemonicParsing="false" text="ADD" />
                                        </children>
                                     </HBox>
                                  </children>

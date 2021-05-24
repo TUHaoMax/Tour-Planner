@@ -8,8 +8,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -56,7 +54,11 @@
                         <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours information" />
                         <Button fx:id="plus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="37.0" text="+" />
                         <Button fx:id="minus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="35.0" text="-" />
-                        <Button fx:id="edit" mnemonicParsing="false" onAction="#handle" text="Edit" />
+                  <Label fx:id="mainlabel" prefHeight="25.0" prefWidth="83.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                   <Button fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF" />
                     </children>
@@ -73,7 +75,7 @@
    <center>
       <SplitPane dividerPositions="0.3210702341137124" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="259.0">
                <children>
                   <VBox prefHeight="441.0" prefWidth="205.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -82,32 +84,13 @@
                      </children>
                   </VBox>
                </children></AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane fx:id="rootinfor" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="442.0" prefWidth="389.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.48066298342541436" orientation="VERTICAL" prefHeight="442.0" prefWidth="389.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <VBox prefHeight="221.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Label fx:id="TourLabel" prefHeight="25.0" prefWidth="387.0" text="Label" VBox.vgrow="ALWAYS" />
-                                    <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-                                      <tabs>
-                                        <Tab text="Untitled Tab 1">
-                                          <content>
-                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                          </content>
-                                        </Tab>
-                                        <Tab text="Untitled Tab 2">
-                                          <content>
-                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                          </content>
-                                        </Tab>
-                                      </tabs>
-                                    </TabPane>
-                                 </children>
-                              </VBox>
-                           </children></AnchorPane>
+
+                        <fx:include fx:id="TM" source="TM.fxml" />
+
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
                               <VBox prefHeight="217.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

@@ -2,7 +2,9 @@ package APP;
 
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class APPLauncher extends Application {
+
+
     private static final Logger logger= LoggerFactory.getLogger(APPLauncher.class);
     Stage stage=new Stage();
     public  String path="../Resources/fxml/";
@@ -19,6 +23,16 @@ public class APPLauncher extends Application {
     public  void  showWindow() throws Exception {
         start(stage);
     }
+
+    public void  switchWindow(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource(path+fxmlname));
+        stage=(Stage) ((Node) event.getSource() ).getScene().getWindow();
+        stage.setTitle(fxmlname);
+        stage.setScene(new Scene(root, 900, 900));
+
+        stage.show();
+    }
+
 
     public static void main(String[] args) throws Exception{
         logger.debug("Main window start");

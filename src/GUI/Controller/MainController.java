@@ -11,17 +11,24 @@ import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
-
+@Getter
+@Setter
 public class MainController implements Initializable, EventHandler<ActionEvent> {
     private static final Logger logger= LoggerFactory.getLogger(MainController.class);
 
@@ -30,19 +37,25 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     TableViewModel tableViewModel=new TableViewModel();
     tourinformanager tim=new tourinformanager();
 
+    FXMLLoader loader=new FXMLLoader(getClass().getResource("../../Resources/fxml/TM.fxml"));
+    Parent root;
+
+
     @FXML
-    private ListView<String> ListTours;
-    @FXML
-    private Label TourLabel;
+    public ListView<String> ListTours;
+
+
+
     @FXML
     private TextField Tourname;
     @FXML
-    private Label LogsLabel,TourListLabel;
+    private Label LogsLabel,TourListLabel,mainlabel;
     @FXML
-    private Button plus,minus,edit,PDF;
+    private Button plus,minus,PDF,edit;
     @FXML
     private TableColumn<TourLogs,String> Date,Time;
-
+    @FXML
+    private AnchorPane TM;
     @FXML
     private TableView<TourLogs> TableView;
 
@@ -50,8 +63,19 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     String currentTour;
     int currentTourId;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        TMController TMC=loader.getController();
+
+
         this.ListTours.setItems(listView.getNamelist());
 
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
@@ -92,8 +116,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 currentTour=ListTours.getSelectionModel().getSelectedItem();
                 tim.settour(currentTour);
                 currentTourId= tim.TourId;
-                TourLabel.setText(currentTour+" "+currentTourId);
-                LogsLabel.setText(currentTour+" "+currentTourId+" Logs:");
+                mainlabel.setText(currentTour);
+                LogsLabel.setText(currentTour+" "+" Logs:");
                 TableView.setItems(tableViewModel.settourLogs(currentTourId));
             }
         });
@@ -111,8 +135,9 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             int i=listView.deletecurrentTour(currentTour);
         }
         if(actionEvent.getSource()==edit){
+
             try {
-                WindowController.Windowlaunch("Tourmanage.fxml");
+                WindowController.Windowlaunch("TM.fxml",actionEvent);
             } catch (Exception e) {
                 e.printStackTrace();
             }

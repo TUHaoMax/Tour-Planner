@@ -18,17 +18,20 @@ public class APPLauncher extends Application {
     Stage stage=new Stage();
     public  String path="../Resources/fxml/";
     public static String fxmlname="";
+    public int v=900,v1=900;
 
 
     public  void  showWindow() throws Exception {
         start(stage);
     }
 
+
+
     public void  switchWindow(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource(path+fxmlname));
         stage=(Stage) ((Node) event.getSource() ).getScene().getWindow();
         stage.setTitle(fxmlname);
-        stage.setScene(new Scene(root, 900, 900));
+        stage.setScene(new Scene(root, v,v1));
 
         stage.show();
     }
@@ -43,7 +46,7 @@ public class APPLauncher extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(path+fxmlname));
         primaryStage.setTitle(fxmlname);
-        primaryStage.setScene(new Scene(root, 900, 900));
+        primaryStage.setScene(new Scene(root, v,v1));
         primaryStage.show();
     }
 }

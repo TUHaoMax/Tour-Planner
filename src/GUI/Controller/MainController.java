@@ -69,33 +69,36 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
 
+        try {
 
-        Tourname.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                if(t1.equals("")){
-                    TourListLabel.setText("Tours List");
-                }else {
-                    TourListLabel.setText(t1);
-                }
-                FilteredList<String> FL=listView.getNamelist().filtered(new Predicate<String>() {
-                    @Override
-                    public boolean test(String s) {
-                        if(s.contains(Tourname.getText())){
-                            if(!Tourname.getText().equals("")){
-                                logger.debug("Tour finded {}",s);
-                            }
-                            return true;
-                        }
-                        else {
-                            return false;
-                        }
+            Tourname.textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    if (t1.equals("")) {
+                        TourListLabel.setText("Tours List");
+                    } else {
+                        TourListLabel.setText(t1);
                     }
-                });
-                ListTours.setItems(FL);
-            }
-        });
+                    FilteredList<String> FL = listView.getNamelist().filtered(new Predicate<String>() {
+                        @Override
+                        public boolean test(String s) {
+                            if (s.contains(Tourname.getText())) {
+                                if (!Tourname.getText().equals("")) {
+                                    logger.debug("Tour finded {}", s);
+                                }
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    });
+                    ListTours.setItems(FL);
+                }
+            });
 
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         ListTours.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override

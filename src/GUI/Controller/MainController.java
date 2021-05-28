@@ -38,7 +38,6 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
     @FXML
     public ListView<String> ListTours;
-
     @FXML
     private TMController TMC=new TMController();
     @FXML
@@ -46,9 +45,9 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @FXML
     private Label LogsLabel,TourListLabel,mainlabel;
     @FXML
-    private Button plus,minus,PDF,edit;
+    private Button plus,minus,PDF,edit,logminus;
     @FXML
-    private TableColumn<TourLogs,String> Date,Time;
+    private TableColumn<TourLogs,String> Date,Time,Distance,Weather,Rating;
     @FXML
     private AnchorPane TM;
     @FXML
@@ -57,7 +56,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
     public static String currentTour;
     public static int currentTourId;
-
+    public static int currentLogId;
 
 
     @Override
@@ -68,6 +67,9 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
         Date.setCellValueFactory(new PropertyValueFactory<>("LogDate"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Logtime"));
+        Distance.setCellValueFactory(new PropertyValueFactory<>("Distance"));
+        Weather.setCellValueFactory(new PropertyValueFactory<>("weather"));
+        Rating.setCellValueFactory(new PropertyValueFactory<>("Rating"));
 
         try {
 
@@ -115,6 +117,16 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 TableView.setItems(tableViewModel.settourLogs(currentTourId));
             }
         });
+        TableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TourLogs>() {
+            @Override
+            public void changed(ObservableValue<? extends TourLogs> observableValue, TourLogs tourLogs, TourLogs t1) {
+                if(t1!=null){
+                    currentLogId=t1.getId();
+                    System.out.println(t1.getId());
+                }
+
+            }
+        });
 
         //ListTours.getSelectionModel().selectedItemProperty().addListener( (v,old,newvalue) -> currentTour=newvalue);
 
@@ -131,6 +143,10 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
         if(actionEvent.getSource()==PDF){
             reporting.PDfcreate(currentTour);
+        }
+        if(actionEvent.getSource()==logminus){
+            tableViewModel.deletelog(currentLogId);
+            TableView.setItems(tableViewModel.settourLogs(currentTourId));
         }
     }
 }

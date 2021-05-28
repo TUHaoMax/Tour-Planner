@@ -73,7 +73,7 @@
         </VBox>
     </top>
    <center>
-      <SplitPane dividerPositions="0.3210702341137124" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.19230769230769232" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="259.0">
                <children>
@@ -95,11 +95,20 @@
                            <children>
                               <VBox prefHeight="217.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label fx:id="LogsLabel" prefHeight="23.0" prefWidth="387.0" text="Logs" VBox.vgrow="ALWAYS" />
+                                    <HBox prefHeight="31.0" prefWidth="479.0" spacing="5.0">
+                                       <children>
+                                          <Label fx:id="LogsLabel" prefHeight="17.0" prefWidth="351.0" text="Logs" HBox.hgrow="ALWAYS" />
+                                          <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="logminus" onAction="#handle" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Delete" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
                                     <TableView fx:id="TableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn fx:id="Date" prefWidth="110.6667150259018" text="Date" />
-                                        <TableColumn fx:id="Time" prefWidth="102.66669464111328" text="Duration" />
+                                        <TableColumn fx:id="Date" prefWidth="116.00001275539398" text="Date" />
+                                        <TableColumn fx:id="Time" prefWidth="130.0" text="Duration" />
+                                          <TableColumn fx:id="Distance" prefWidth="68.66665649414062" text="Distance" />
+                                          <TableColumn fx:id="Weather" minWidth="0.0" prefWidth="95.33334350585938" text="Weather" />
+                                          <TableColumn fx:id="Rating" prefWidth="63.99993896484375" text="Rating" />
                                       </columns>
                                     </TableView>
                                  </children>

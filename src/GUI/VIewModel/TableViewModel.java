@@ -1,6 +1,8 @@
 package GUI.VIewModel;
 
 import BusinessLayer.logsinformanager;
+import DataALayer.SQL;
+import DataALayer.ToursData;
 import TourModels.TourLogs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,9 +22,16 @@ public class TableViewModel {
       this.tourLogs.clear();
       logsinformanager lim=new logsinformanager(TID);
       for (int i=0;i<lim.Logsinforlist.get(3).size();i++){
-         this.tourLogs.add(new TourLogs(lim.Logsinforlist.get(1).get(i),
-                 lim.Logsinforlist.get(2).get(i)));
+         this.tourLogs.add(new TourLogs(lim.Logsinforlist.get(0).get(i),lim.Logsinforlist.get(1).get(i),
+                 lim.Logsinforlist.get(2).get(i),lim.Logsinforlist.get(3).get(i),
+                 lim.Logsinforlist.get(4).get(i),lim.Logsinforlist.get(5).get(i),
+                 lim.Logsinforlist.get(6).get(i)));
       }
       return tourLogs;
     }
+
+    public void deletelog(int ID){
+       ToursData.Dosql(SQL.Logs_Delete,ID);
+    }
+
 }

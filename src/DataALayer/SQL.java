@@ -20,4 +20,6 @@ public interface SQL {
     String Logs_selectall="SELECT * FROM logs order by id";
 
     String Logs_insert="INSERT INTO logs(date, duration, tourid, rating, weather, distance)VALUES (?, ?, ?, ?, ?, ?)";
+
+    String Logs_Delete="DELETE FROM logs WHERE id=?";
 }

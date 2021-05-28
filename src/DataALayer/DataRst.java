@@ -42,6 +42,9 @@ public class DataRst {
         ArrayList<Date> DateList=new ArrayList<Date>();
         ArrayList<Time> durationList=new ArrayList<>();
         ArrayList<Integer> TouridList=new ArrayList<>();
+        ArrayList<Integer> Ratinglist=new ArrayList<>();
+        ArrayList<String> Weatherlist=new ArrayList<>();
+        ArrayList<Integer> Distancelist=new ArrayList<>();
 
         ResultSet resultSet= ToursData.Getsql(SQL.Logs_selectToursid,tid);
 
@@ -51,6 +54,9 @@ public class DataRst {
                 IDList.add(resultSet.getInt("id"));
                 durationList.add(resultSet.getTime("duration"));
                 TouridList.add(resultSet.getInt("tourid"));
+                Ratinglist.add(resultSet.getInt("rating"));
+                Weatherlist.add(resultSet.getString("weather"));
+                Distancelist.add(resultSet.getInt("distance"));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -60,6 +66,9 @@ public class DataRst {
         DataList.add(DateList);
         DataList.add(durationList);
         DataList.add(TouridList);
+        DataList.add(Ratinglist);
+        DataList.add(Weatherlist);
+        DataList.add(Distancelist);
         return DataList;
 
     }

@@ -14,11 +14,18 @@ public class TourLogs {
     private Time Logtime;
     private int tourid;
     private int Id;
+    private String weather;
+    private int Rating;
+    private int Distance;
 
-
-    public TourLogs(Object logDate, Object logtime) {
-        LogDate = (Date) logDate;
-        Logtime = (Time) logtime;
+    public TourLogs(Object Id, Object logDate, Object logtime, Object tourid, Object Rating, Object weather, Object Distance) {
+        this.Id=(int)Id;
+        this.LogDate = (Date) logDate;
+        this.Logtime = (Time) logtime;
+        this.tourid=(int)tourid;
+        this.Rating=(int)Rating;
+        this.weather=(String) weather;
+        this.Distance=(int)Distance;
     }
 
 

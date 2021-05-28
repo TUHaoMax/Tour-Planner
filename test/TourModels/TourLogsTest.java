@@ -5,8 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TourLogsTest {
 
     @Test
@@ -15,8 +13,10 @@ class TourLogsTest {
         System.out.println(lim.Logsinforlist);
         ObservableList<TourLogs> tourLogs= FXCollections.observableArrayList();
         for (int i=0;i<lim.Logsinforlist.get(3).size();i++){
-            tourLogs.add(new TourLogs(lim.Logsinforlist.get(1).get(i),
-                    lim.Logsinforlist.get(2).get(i)));
+            tourLogs.add(new TourLogs(lim.Logsinforlist.get(0).get(i),lim.Logsinforlist.get(1).get(i),
+                    lim.Logsinforlist.get(2).get(i),lim.Logsinforlist.get(3).get(i),
+                    lim.Logsinforlist.get(4).get(i),lim.Logsinforlist.get(5).get(i),
+                    lim.Logsinforlist.get(6).get(i)));
         }
 
         for (int i=0;i<tourLogs.size();i++){

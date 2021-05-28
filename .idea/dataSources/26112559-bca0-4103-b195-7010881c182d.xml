@@ -792,7 +792,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1621610958</StartupTime>
+      <StartupTime>1622155354</StartupTime>
     </root>
     <database id="2" parent="1" name="DBS">
       <ObjectId>16400</ObjectId>
@@ -815,7 +815,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>17936</IntrospectionStateNumber>
+      <IntrospectionStateNumber>17960</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|35395|35397|1
 sequence|table|35382|35376|2
@@ -2418,7 +2418,7 @@ sequence|table|35382|35376|2
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>17937</IntrospectionStateNumber>
+      <IntrospectionStateNumber>17961</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="4" name="plpgsql">
@@ -62563,7 +62563,7 @@ sequence|table|35382|35376|2
     <table id="5143" parent="19" name="logs">
       <ObjectId>35397</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>17935</StateNumber>
+      <StateNumber>17959</StateNumber>
     </table>
     <table id="5144" parent="19" name="toursinfor">
       <ObjectId>35376</ObjectId>
@@ -110593,7 +110593,19 @@ umserver</ColNames>
       <StateNumber>17935</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="16110" parent="5143" name="logs_pk">
+    <column id="16110" parent="5143" name="weather">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>17955</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="16111" parent="5143" name="distance">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>17959</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="16112" parent="5143" name="logs_pk">
       <ObjectId>35401</ObjectId>
       <StateNumber>17855</StateNumber>
       <ColNames>id</ColNames>
@@ -110603,14 +110615,14 @@ umserver</ColNames>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="16111" parent="5143" name="logs_pk">
+    <key id="16113" parent="5143" name="logs_pk">
       <ObjectId>35402</ObjectId>
       <StateNumber>17855</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>logs_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="16112" parent="5143" name="logs_toursinfor_id_fk">
+    <foreign-key id="16114" parent="5143" name="logs_toursinfor_id_fk">
       <ObjectId>35403</ObjectId>
       <StateNumber>17864</StateNumber>
       <ColNames>tourid</ColNames>
@@ -110622,13 +110634,13 @@ umserver</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="16113" parent="5144" name="name">
+    <column id="16115" parent="5144" name="name">
       <Position>1</Position>
       <DataType>text|0s</DataType>
       <StateNumber>17740</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="16114" parent="5144" name="id">
+    <column id="16116" parent="5144" name="id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -110636,19 +110648,19 @@ umserver</ColNames>
       <DefaultExpression>nextval(&apos;toursinfor_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="16115" parent="5144" name="Departure">
+    <column id="16117" parent="5144" name="departure">
       <Position>3</Position>
       <DataType>text|0s</DataType>
-      <StateNumber>17851</StateNumber>
+      <StateNumber>17943</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="16116" parent="5144" name="destination">
+    <column id="16118" parent="5144" name="destination">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <StateNumber>17852</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="16117" parent="5144" name="toursinfor_pkey">
+    <index id="16119" parent="5144" name="toursinfor_pkey">
       <ObjectId>35385</ObjectId>
       <StateNumber>17741</StateNumber>
       <ColNames>id</ColNames>
@@ -110658,7 +110670,7 @@ umserver</ColNames>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="16118" parent="5144" name="toursinfor_pkey">
+    <key id="16120" parent="5144" name="toursinfor_pkey">
       <ObjectId>35386</ObjectId>
       <StateNumber>17741</StateNumber>
       <ColNames>id</ColNames>

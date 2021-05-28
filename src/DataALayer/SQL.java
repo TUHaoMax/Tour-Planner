@@ -6,6 +6,12 @@ public interface SQL {
     String Tours_insert="INSERT INTO toursinfor(name) VALUES (?)";
 
     String Tours_Delete="DELETE FROM toursinfor WHERE name= ?";
+
+    String Tours_update=" UPDATE toursinfor SET  departure=?, destination=? WHERE id=? ";
+
+    String Tours_DP=" UPDATE toursinfor SET  departure=? WHERE id=? ";
+
+    String Tours_DT=" UPDATE toursinfor SET  destination=? WHERE id=? ";
     //Tours
 
     //Logs
@@ -13,4 +19,5 @@ public interface SQL {
 
     String Logs_selectall="SELECT * FROM logs order by id";
 
+    String Logs_insert="INSERT INTO logs(date, duration, tourid, rating, weather, distance)VALUES (?, ?, ?, ?, ?, ?)";
 }

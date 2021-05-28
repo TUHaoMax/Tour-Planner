@@ -84,7 +84,7 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
                         e.printStackTrace();
                     }
                 }else {
-                    logger.debug("test");
+                    logger.debug("Log insert");
                     tmViewModel.insertLog(java.sql.Date.valueOf(Date.getValue().toString()), Time.valueOf(Duration.getText()),
                             TourID, Rating.getValue(), WeatherCB.getValue(), Integer.parseInt(Distance.getText()));
                 }

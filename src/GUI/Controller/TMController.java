@@ -26,8 +26,7 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
     private static String Tourname;
     private static String[] Weather={"sunshine","rain","snow","cloud","fog","wind","thunderstorm"};
     private static String currentweather;
-    @FXML
-    private MainController MC;
+
     @FXML
     private ChoiceBox<String> WeatherCB;
     @FXML

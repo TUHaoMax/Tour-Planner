@@ -3,6 +3,7 @@ package GUI.VIewModel;
 import BusinessLayer.tourinformanager;
 import DataALayer.SQL;
 import DataALayer.ToursData;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
@@ -16,11 +17,11 @@ import org.slf4j.LoggerFactory;
 public class ListViewModel {
     private static final Logger logger= LoggerFactory.getLogger(ListViewModel.class);
     private ObservableList<String> namelist;
+    public SimpleStringProperty Tname=new SimpleStringProperty("test");
 
     public ListViewModel() {
         namelist= FXCollections.observableArrayList();
         obserlist();
-
     }
 
     private void obserlist(){

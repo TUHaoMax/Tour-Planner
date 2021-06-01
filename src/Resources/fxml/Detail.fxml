@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.DetailController">
+   <children>
+      <Label fx:id="test" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="209.0" text="Label" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER" layoutY="74.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="243.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.66666666666666">
+         <children>
+            <HBox prefHeight="175.0" prefWidth="400.0" spacing="30.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="134.0" prefWidth="199.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="71.0" prefWidth="191.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <TextField VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="134.0" prefWidth="218.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="71.0" prefWidth="235.0" text="Label" />
+                        <TextField />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" text="Button" VBox.vgrow="ALWAYS" />
+            <Region prefHeight="68.0" prefWidth="400.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

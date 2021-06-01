@@ -5,8 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,137 +12,108 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="TMinfor" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.TMController">
-
-        <children>
-            <VBox prefHeight="221.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <children>
-                    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-                        <tabs>
-                            <Tab text="Route">
-                                <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Button fx:id="test" layoutX="211.0" layoutY="87.0" mnemonicParsing="false" onAction="#handle" text="Button" />
-                           </children></AnchorPane>
-                                </content>
-                            </Tab>
-                            <Tab text="Description">
-                                <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                </content>
-                            </Tab>
-                            <Tab text="Edit">
-                                <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <VBox prefHeight="461.0" prefWidth="490.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Label prefHeight="30.0" prefWidth="500.0" text="Basic Information :" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox prefHeight="74.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <VBox prefHeight="71.0" prefWidth="178.0" spacing="20.0">
-                                             <children>
-                                                <TextField fx:id="Departure" />
-                                                <TextField fx:id="Destination" />
-                                             </children>
-                                          </VBox>
-                                          <VBox prefHeight="71.0" prefWidth="117.0" spacing="30.0">
-                                             <children>
-                                                <Label prefHeight="21.0" prefWidth="119.0" text="Departure">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label prefHeight="21.0" prefWidth="120.0" text="destination">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </VBox>
-                                          <Button fx:id="ADDTourinfor" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" text="ADD" />
-                                       </children>
-                                    </HBox>
-                                    <Label prefHeight="34.0" prefWidth="500.0" text="Add Log :" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox prefHeight="138.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <VBox prefHeight="138.0" prefWidth="179.0" spacing="30.0">
-                                             <children>
-                                                <DatePicker fx:id="Date" prefHeight="25.0" prefWidth="179.0" />
-                                                <TextField fx:id="Duration" promptText="24:60:60" />
-                                                <TextField fx:id="Distance" promptText="/KM" />
-                                             </children>
-                                          </VBox>
-                                          <VBox prefHeight="138.0" prefWidth="110.0" spacing="30.0">
-                                             <children>
-                                                <Label prefHeight="17.0" prefWidth="114.0" text="Date">
-                                                   <font>
-                                                      <Font size="17.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label prefHeight="26.0" prefWidth="118.0" text="Duration">
-                                                   <font>
-                                                      <Font size="17.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label prefHeight="17.0" prefWidth="111.0" text="Distance">
-                                                   <font>
-                                                      <Font size="17.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </VBox>
-                                          <VBox prefHeight="91.0" prefWidth="100.0" spacing="12.0">
-                                             <children>
-                                                <Label prefHeight="39.0" prefWidth="100.0" text="Rating">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Spinner fx:id="Rating" editable="true" max="10" min="1" prefHeight="25.0" prefWidth="190.0" />
-                                                <Label prefHeight="17.0" prefWidth="101.0" text="Weather">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <ChoiceBox fx:id="WeatherCB" prefWidth="150.0" />
-                                             </children>
-                                          </VBox>
-                                          <VBox alignment="CENTER" prefHeight="138.0" prefWidth="104.0">
-                                             <children>
-                                                <Button fx:id="ADDLog" mnemonicParsing="false" onAction="#handle" text="ADD" />
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </HBox>
-                                    <Label prefHeight="31.0" prefWidth="500.0" text="Description :" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="165.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <TextArea prefHeight="165.0" prefWidth="423.0" HBox.hgrow="ALWAYS" />
-                                          <Button mnemonicParsing="false" text="ADD" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children></AnchorPane>
-                                </content>
-                            </Tab>
-                        </tabs>
-                    </TabPane>
-                </children>
-            </VBox>
-        </children>
+<AnchorPane fx:id="EditPane" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.TMController">
+   <children>
+      <VBox prefHeight="461.0" prefWidth="490.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="500.0" text="Basic Information :" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="74.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="71.0" prefWidth="178.0" spacing="20.0">
+                     <children>
+                        <TextField fx:id="Departure" />
+                        <TextField fx:id="Destination" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="71.0" prefWidth="117.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="119.0" text="Departure">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="120.0" text="destination">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button fx:id="ADDTourinfor" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" text="ADD" />
+               </children>
+            </HBox>
+            <Label prefHeight="34.0" prefWidth="500.0" text="Add Log :" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="138.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="138.0" prefWidth="179.0" spacing="30.0">
+                     <children>
+                        <DatePicker fx:id="Date" prefHeight="25.0" prefWidth="179.0" />
+                        <TextField fx:id="Duration" promptText="24:60:60" />
+                        <TextField fx:id="Distance" promptText="/KM" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="138.0" prefWidth="110.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="114.0" text="Date">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="26.0" prefWidth="118.0" text="Duration">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="111.0" text="Distance">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="91.0" prefWidth="100.0" spacing="12.0">
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="100.0" text="Rating">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Spinner fx:id="Rating" editable="true" max="10" min="1" prefHeight="25.0" prefWidth="190.0" />
+                        <Label prefHeight="17.0" prefWidth="101.0" text="Weather">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="WeatherCB" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="138.0" prefWidth="104.0">
+                     <children>
+                        <Button fx:id="ADDLog" mnemonicParsing="false" onAction="#handle" text="ADD" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label prefHeight="31.0" prefWidth="500.0" text="Description :" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="165.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TextArea prefHeight="165.0" prefWidth="423.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="ADD" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

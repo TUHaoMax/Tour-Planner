@@ -14,19 +14,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
 @Getter
 @Setter
-public class MainController implements Initializable, EventHandler<ActionEvent> {
+public class MainController implements Initializable, EventHandler<ActionEvent>{
     private static final Logger logger= LoggerFactory.getLogger(MainController.class);
 
     ReportingViewModel reporting=new ReportingViewModel();
@@ -35,11 +35,14 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     tourinformanager tim=new tourinformanager();
 
 
-
+    @FXML
+    private TextArea test;
     @FXML
     public ListView<String> ListTours;
     @FXML
     private TMController TMC=new TMController();
+    @FXML
+    private DetailController DC=new DetailController();
     @FXML
     private TextField Tourname;
     @FXML
@@ -48,8 +51,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private Button plus,minus,PDF,edit,logminus;
     @FXML
     private TableColumn<TourLogs,String> Date,Time,Distance,Weather,Rating;
-    @FXML
-    private AnchorPane TM;
+
     @FXML
     private TableView<TourLogs> TableView;
 
@@ -57,6 +59,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     public static String currentTour;
     public static int currentTourId;
     public static int currentLogId;
+
 
 
     @Override
@@ -112,17 +115,32 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
                 TMC.setTT(currentTour,currentTourId);
 
+                RouteController.listViewModel.Tname.set(currentTour);
+
                 mainlabel.setText(currentTour);
                 LogsLabel.setText(currentTour+" "+" Logs:");
                 TableView.setItems(tableViewModel.settourLogs(currentTourId));
             }
         });
+
+        ListTours.setOnMouseClicked(mouseEvent -> {
+            switch (mouseEvent.getClickCount()) {
+                case 2:
+                    DetailController.Tname=currentTour;
+                    try {
+                        WindowController.Windowlunch("Detail.fxml",300,200);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+            }
+        });
+
         TableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TourLogs>() {
             @Override
             public void changed(ObservableValue<? extends TourLogs> observableValue, TourLogs tourLogs, TourLogs t1) {
                 if(t1!=null){
                     currentLogId=t1.getId();
-                    System.out.println(t1.getId());
+                    logger.debug("Logs finded {}", t1.getId());
                 }
 
             }
@@ -148,6 +166,10 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             tableViewModel.deletelog(currentLogId);
             TableView.setItems(tableViewModel.settourLogs(currentTourId));
         }
+    }
+
+    public void MouseHandle(MouseEvent mouseEvent){
+
     }
 }
 

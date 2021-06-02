@@ -95,13 +95,13 @@
                               <Tab text="Route">
                                 <content>
                                   <!---<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" /> -->
-                                    <fx:include fx:id="Route" source="Route.fxml" />
+                                    <fx:include fx:id="RouteFX" source="Route.fxml" />
                                 </content>
                               </Tab>
                             <Tab text="Description">
                               <content>
                                   <!---<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" /> -->
-                                  <fx:include fx:id="Description" source="Description.fxml" />
+                                  <fx:include fx:id="DescriptionFX" source="Description.fxml" />
                               </content>
                             </Tab>
                             <Tab fx:id="EditTab" text="Edit">

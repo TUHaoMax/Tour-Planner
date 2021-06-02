@@ -26,12 +26,10 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     private static final Logger logger= LoggerFactory.getLogger(MainController.class);
 
     ReportingViewModel reporting=new ReportingViewModel();
-    ListViewModel listView=new ListViewModel();
+    ListViewModel listViewModel=new ListViewModel();
     tourinformanager tim=new tourinformanager();
 
 
-    //@FXML
-    //private TextArea test;
     @FXML
     public ListView<String> ListTours;
     @FXML
@@ -58,13 +56,15 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
-        this.ListTours.setItems(listView.getNamelist());
+        this.ListTours.setItems(listViewModel.getNamelist());
 
        TextFieldListener();
 
        ListListener();
 
        ListMouseClick();
+
+
 
         //ListTours.getSelectionModel().selectedItemProperty().addListener( (v,old,newvalue) -> currentTour=newvalue);
 
@@ -73,10 +73,10 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @Override
     public void handle(ActionEvent actionEvent) {
         if(actionEvent.getSource()==plus){
-            int i=listView.addTour(Tourname.textProperty().getValue());
+            int i=listViewModel.addTour(Tourname.textProperty().getValue());
         }
         if(actionEvent.getSource()==minus){
-            int i=listView.deletecurrentTour(currentTour);
+            int i=listViewModel.deletecurrentTour(currentTour);
         }
 
         if(actionEvent.getSource()==PDF){
@@ -96,7 +96,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
                     } else {
                         TourListLabel.setText(t1);
                     }
-                    FilteredList<String> FL = listView.getNamelist().filtered(new Predicate<String>() {
+                    FilteredList<String> FL = listViewModel.getNamelist().filtered(new Predicate<String>() {
                         @Override
                         public boolean test(String s) {
                             if (s.contains(Tourname.getText())) {
@@ -129,7 +129,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 
                 TMC.setTT(currentTour,currentTourId);
 
-                DescriptionController.descriptionViewModel.Desvription.set(currentTour);
+                 tim.BuildTourDescription();
+                 DescriptionController.descriptionViewModel.Desvription.set(tim.Description);
 
                 mainlabel.setText(currentTour);
 

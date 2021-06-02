@@ -16,6 +16,7 @@ public class tourinformanager  {
     public  String destination;
     public  String Name;
     public  int TourId;
+    public String Description="";
 
     public tourinformanager() {
         tourinforlist= DataRst.gettourinforResultSet();
@@ -33,5 +34,9 @@ public class tourinformanager  {
 
     }
 
+    public void BuildTourDescription(){
+        Description="";
+        Description=Description.concat(Name).concat(":\n").concat(Departure).concat("--->").concat(destination).concat("\n\n");
+    }
 
 }

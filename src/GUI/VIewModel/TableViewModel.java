@@ -10,6 +10,9 @@ import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
+import java.sql.Time;
+
 @Getter
 @Setter
 
@@ -36,4 +39,23 @@ public class TableViewModel {
        ToursData.Dosql(SQL.Logs_Delete,ID);
     }
 
+    public void date_up(Date date,int Id){
+       ToursData.Dosql(SQL.Logs_date_update,date,Id);
+    }
+
+    public void duration_up(Time Da,int Id){
+       ToursData.Dosql(SQL.Logs_duration_update,Da,Id);
+    }
+
+    public void rating_up(int rating,int Id){
+       ToursData.Dosql(SQL.Logs_rating_update,rating,Id);
+    }
+
+    public void weather_up(String weather,int Id){
+       ToursData.Dosql(SQL.Logs_weather_update,weather,Id);
+    }
+
+    public void distance_up(int distance,int Id){
+       ToursData.Dosql(SQL.Logs_distance_update,distance,Id);
+    }
 }

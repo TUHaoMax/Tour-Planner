@@ -54,8 +54,11 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
                if(Description.getText()!=null && Description.getText()!=""){
                    tmViewModel.UPdataTDS(Description.getText(),tourinformanager.TourId);
                    logger.debug("{}-> Description : {}  insert",Tname,Description.getText());
-               }
 
+               }
+               tourinformanager.settour(Tname);
+               tourinformanager.BuildTourDescription();
+               DescriptionController.descriptionViewModel.Description.set(tourinformanager.FinalDescription);
            }
        }
 

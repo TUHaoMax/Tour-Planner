@@ -18,7 +18,7 @@ public class TableViewModel {
    public TableViewModel() {
    }
 
-   public ObservableList<TourLogs> settourLogs(int TID){
+   public void settourLogs(int TID){
       this.tourLogs.clear();
       logsinformanager lim=new logsinformanager(TID);
       for (int i=0;i<lim.Logsinforlist.get(3).size();i++){
@@ -27,7 +27,7 @@ public class TableViewModel {
                  lim.Logsinforlist.get(4).get(i),lim.Logsinforlist.get(5).get(i),
                  lim.Logsinforlist.get(6).get(i)));
       }
-      return tourLogs;
+
     }
 
     public void deletelog(int ID){

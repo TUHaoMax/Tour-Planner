@@ -57,5 +57,22 @@ public class TableController implements Initializable, EventHandler<ActionEvent>
 
             }
         });*/
+
+      TableMouseClick();
+
+    }
+
+
+    private void TableMouseClick(){
+        TableView.setOnMouseClicked(mouseEvent -> {
+            switch (mouseEvent.getClickCount()) {
+                case 2:
+                    try {
+                        WindowController.Windowlunch("LogDetail.fxml",300,249);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+            }
+        });
     }
 }

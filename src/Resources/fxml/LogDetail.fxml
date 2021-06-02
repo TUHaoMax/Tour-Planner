@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="249.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LogDetailController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="39.0" prefWidth="600.0" text="Label" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="170.0" prefWidth="300.0">
+               <children>
+                  <VBox prefHeight="175.0" prefWidth="251.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="173.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <DatePicker VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="25.0" prefWidth="173.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <TextField />
+                        <Label prefHeight="25.0" prefWidth="173.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <TextField VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="175.0" prefWidth="199.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="163.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <Spinner VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="25.0" prefWidth="125.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <ChoiceBox prefWidth="150.0" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" text="Button" />
+            <Region prefHeight="15.0" prefWidth="300.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

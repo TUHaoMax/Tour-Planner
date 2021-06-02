@@ -3,10 +3,10 @@ package GUI.VIewModel;
 import javafx.beans.property.SimpleStringProperty;
 
 public class DescriptionViewModel {
-    public SimpleStringProperty Desvription;
+    public SimpleStringProperty Description;
 
     public DescriptionViewModel() {
-        Desvription =new SimpleStringProperty("Please select a tour");
+        Description =new SimpleStringProperty("Please select a tour");
     }
 
 

@@ -20,6 +20,10 @@ public class TMViewModel {
         ToursData.Dosql(SQL.Tours_DT,DT,Tid);
     }
 
+    public void UPdataTDS(String DS,int Tid){
+        ToursData.Dosql(SQL.Tours_DS,DS,Tid);
+    }
+
     public void insertLog(Date Date, Time DA, int Tid, int Rating, String weather, int distance){
 
      ToursData.Dosql(SQL.Logs_insert,Date,DA,Tid,Rating,weather,distance);

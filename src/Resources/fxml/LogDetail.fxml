@@ -12,39 +12,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="249.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LogDetailController">
+<AnchorPane fx:id="thisPane" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.LogDetailController">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="MainLabel" prefHeight="39.0" prefWidth="352.0" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER" layoutY="51.0" prefHeight="249.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
          <children>
-            <Label prefHeight="39.0" prefWidth="600.0" text="Label" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="170.0" prefWidth="300.0">
+            <HBox prefHeight="170.0" prefWidth="300.0" spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="175.0" prefWidth="251.0">
+                  <VBox prefHeight="162.0" prefWidth="118.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="24.0" prefWidth="173.0" text="Label" VBox.vgrow="ALWAYS" />
-                        <DatePicker VBox.vgrow="ALWAYS" />
-                        <Label prefHeight="25.0" prefWidth="173.0" text="Label" VBox.vgrow="ALWAYS" />
-                        <TextField />
-                        <Label prefHeight="25.0" prefWidth="173.0" text="Label" VBox.vgrow="ALWAYS" />
-                        <TextField VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="24.0" prefWidth="173.0" text="Date" VBox.vgrow="ALWAYS" />
+                        <DatePicker fx:id="Date" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="25.0" prefWidth="173.0" text="Duration" VBox.vgrow="ALWAYS" />
+                        <TextField fx:id="Duration" prefHeight="25.0" prefWidth="175.0" promptText="24:60:60" />
+                        <Label prefHeight="25.0" prefWidth="173.0" text="Distance" VBox.vgrow="ALWAYS" />
+                        <TextField fx:id="Distance" promptText="/KM" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="175.0" prefWidth="199.0">
+                  <VBox prefHeight="162.0" prefWidth="101.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="163.0" text="Label" VBox.vgrow="ALWAYS" />
-                        <Spinner VBox.vgrow="ALWAYS" />
-                        <Label prefHeight="25.0" prefWidth="125.0" text="Label" VBox.vgrow="ALWAYS" />
-                        <ChoiceBox prefWidth="150.0" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="25.0" prefWidth="163.0" text="Rating" VBox.vgrow="ALWAYS" />
+                        <Spinner fx:id="Rating" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="25.0" prefWidth="145.0" text="Weather" VBox.vgrow="ALWAYS" />
+                        <ChoiceBox fx:id="WeatherCB" prefHeight="25.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" text="Button" />
+            <Button fx:id="update" mnemonicParsing="false" onAction="#handle" text="Update" />
+            <Button mnemonicParsing="false" onAction="#handle" text="Quit" />
             <Region prefHeight="15.0" prefWidth="300.0" />
          </children>
       </VBox>

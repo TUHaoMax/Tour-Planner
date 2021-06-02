@@ -109,8 +109,8 @@
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="165.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
                <children>
-                  <TextArea prefHeight="165.0" prefWidth="423.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="ADD" />
+                  <TextArea fx:id="Description" prefHeight="165.0" prefWidth="423.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="ADD_DS" onAction="#handle" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="ADD" />
                </children>
             </HBox>
          </children>

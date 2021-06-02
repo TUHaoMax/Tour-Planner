@@ -4,6 +4,7 @@ import BusinessLayer.logsinformanager;
 import DataALayer.SQL;
 import DataALayer.ToursData;
 import TourModels.TourLogs;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
@@ -14,8 +15,9 @@ import lombok.Setter;
 
 public class TableViewModel {
    private ObservableList<TourLogs> tourLogs= FXCollections.observableArrayList();
-
+    public SimpleStringProperty Loglabel;
    public TableViewModel() {
+       Loglabel=new SimpleStringProperty("Logs: ");
    }
 
    public void settourLogs(int TID){

@@ -8,14 +8,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DetailController implements Initializable, EventHandler<ActionEvent> {
+    private static final Logger logger= LoggerFactory.getLogger(DetailController.class);
     private tourinformanager tourinformanager=new tourinformanager();
     private TMViewModel tmViewModel=new TMViewModel();
     public static String Tname;
@@ -24,6 +28,8 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
     private Label test;
     @FXML
     private TextField Departure,Destination;
+    @FXML
+    private TextArea Description;
     @FXML
     private Button Update;
     @FXML
@@ -34,17 +40,33 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
     @Override
     public void handle(ActionEvent event) {
        if(event.getSource()==Update){
-           tmViewModel.UPdateT(Departure.getText(),Destination.getText(),tourinformanager.TourId);
+           if(Departure.getText()=="" || Destination.getText()==""){
+               logger.debug("error");
+               ErrorController.msg="information is incomplete";
+               try {
+                   WindowController.Windowlunch("error.fxml",400,300);
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
+           }else {
+               tmViewModel.UPdateT(Departure.getText(),Destination.getText(),tourinformanager.TourId);
+               logger.debug("Tour:{} : {} -> {} update",Tname,Departure.getText(),Destination.getText());
+               if(Description.getText()!=null && Description.getText()!=""){
+                   tmViewModel.UPdataTDS(Description.getText(),tourinformanager.TourId);
+                   logger.debug("{}-> Description : {}  insert",Tname,Description.getText());
+               }
 
-           stage=(Stage) thisPane.getScene().getWindow();
-           stage.close();
+           }
        }
+
+
+        stage=(Stage) thisPane.getScene().getWindow();
+        stage.close();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
                test.setText(Tname);
-
                tourinformanager.settour(Tname);
                Departure.setText(tourinformanager.getDeparture());
                Destination.setText(tourinformanager.getDestination());

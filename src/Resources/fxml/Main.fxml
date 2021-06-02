@@ -112,29 +112,7 @@
                           </tabs>
                         </TabPane>
 
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <VBox prefHeight="217.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <HBox prefHeight="31.0" prefWidth="479.0" spacing="5.0">
-                                       <children>
-                                          <Label fx:id="LogsLabel" prefHeight="17.0" prefWidth="351.0" text="Logs" HBox.hgrow="ALWAYS" />
-                                          <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-                                          <Button fx:id="logminus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="67.0" text="Delete" HBox.hgrow="ALWAYS" />
-                                       </children>
-                                    </HBox>
-                                    <TableView fx:id="TableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                                      <columns>
-                                        <TableColumn fx:id="Date" prefWidth="116.00001275539398" text="Date" />
-                                        <TableColumn fx:id="Time" prefWidth="130.0" text="Duration" />
-                                          <TableColumn fx:id="Distance" prefWidth="68.66665649414062" text="Distance" />
-                                          <TableColumn fx:id="Weather" minWidth="0.0" prefWidth="95.33334350585938" text="Weather" />
-                                          <TableColumn fx:id="Rating" prefWidth="63.99993896484375" text="Rating" />
-                                      </columns>
-                                    </TableView>
-                                 </children>
-                              </VBox>
-                           </children></AnchorPane>
+                        <fx:include fx:id="TableFX" source="Table.fxml" />
                     </items>
                   </SplitPane>
                </children>

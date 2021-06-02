@@ -22,12 +22,15 @@ public class tourinformanager  {
     }
 
     public  void settour(String name){
-        tourinforlist= DataRst.gettourinforResultSet();
-         index=tourinforlist.get(0).indexOf(name);
-         Departure= (String) tourinforlist.get(1).get(index);
-         destination= (String) tourinforlist.get(2).get(index);
-         TourId= (int) tourinforlist.get(3).get(index);
-         Name=name;
+        if(name!=null){
+            tourinforlist= DataRst.gettourinforResultSet();
+            index=tourinforlist.get(0).indexOf(name);
+            Departure= (String) tourinforlist.get(1).get(index);
+            destination= (String) tourinforlist.get(2).get(index);
+            TourId= (int) tourinforlist.get(3).get(index);
+            Name=name;
+        }
+
     }
 
 

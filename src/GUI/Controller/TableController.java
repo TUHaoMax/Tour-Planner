@@ -83,6 +83,9 @@ public class TableController implements Initializable, EventHandler<ActionEvent>
         TableView.setOnMouseClicked(mouseEvent -> {
             switch (mouseEvent.getClickCount()) {
                 case 2:
+                    LogDetailController.LogID=LogID;
+                    LogDetailController.Tname=Tourname;
+                    LogDetailController.TourID=TourID;
                     try {
                         WindowController.Windowlunch("LogDetail.fxml",300,300);
                     } catch (Exception e) {

@@ -86,7 +86,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Spinner fx:id="Rating" editable="true" max="10" min="1" prefHeight="25.0" prefWidth="190.0" />
+                        <Spinner fx:id="Rating" editable="true" max="10" min="0" prefHeight="25.0" prefWidth="190.0" />
                         <Label prefHeight="17.0" prefWidth="101.0" text="Weather">
                            <font>
                               <Font size="15.0" />

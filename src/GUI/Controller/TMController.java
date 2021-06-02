@@ -71,7 +71,7 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
       }
 
             if (event.getSource() == ADDLog) {
-                if(Date.getValue()==null || Duration.getText()=="" ||Rating.getValue()==null||WeatherCB.getValue()==null||Distance.getText()==""){
+                if(Date.getValue()==null || Duration.getText()=="" ||Rating.getValue()==0 ||WeatherCB.getValue()==null||Distance.getText()==""){
                     logger.debug("error");
                     ErrorController.msg="Log information is incomplete";
                     try {

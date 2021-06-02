@@ -36,7 +36,7 @@
                   <VBox prefHeight="162.0" prefWidth="101.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label prefHeight="25.0" prefWidth="163.0" text="Rating" VBox.vgrow="ALWAYS" />
-                        <Spinner fx:id="Rating" VBox.vgrow="ALWAYS" />
+                        <Spinner fx:id="Rating" editable="true" max="10" min="0" VBox.vgrow="ALWAYS" />
                         <Label prefHeight="25.0" prefWidth="145.0" text="Weather" VBox.vgrow="ALWAYS" />
                         <ChoiceBox fx:id="WeatherCB" prefHeight="25.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
                      </children>

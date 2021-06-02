@@ -17,6 +17,7 @@ public class tourinformanager  {
     public  String Name;
     public  int TourId;
     public String Description="";
+    public String FinalDescription="";
 
     public tourinformanager() {
         tourinforlist= DataRst.gettourinforResultSet();
@@ -30,13 +31,19 @@ public class tourinformanager  {
             destination= (String) tourinforlist.get(2).get(index);
             TourId= (int) tourinforlist.get(3).get(index);
             Name=name;
+            if( tourinforlist.get(4).get(index)!=null ){
+                Description=(String) tourinforlist.get(4).get(index);
+            }else {
+                Description="There is currently no description";
+            }
         }
 
     }
 
     public void BuildTourDescription(){
-        Description="";
-        Description=Description.concat(Name).concat(":\n").concat(Departure).concat("--->").concat(destination).concat("\n\n");
+        FinalDescription="";
+        FinalDescription=FinalDescription.concat(Name).concat(":\n").concat(Departure).concat("--->").
+                concat(destination).concat("\n\n").concat(Description);
     }
 
 }

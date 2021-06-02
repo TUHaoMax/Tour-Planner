@@ -12,6 +12,8 @@ public interface SQL {
     String Tours_DP=" UPDATE toursinfor SET  departure=? WHERE id=? ";
 
     String Tours_DT=" UPDATE toursinfor SET  destination=? WHERE id=? ";
+
+    String Tours_DS="UPDATE toursinfor SET  description=? WHERE id=?";
     //Tours
 
     //Logs

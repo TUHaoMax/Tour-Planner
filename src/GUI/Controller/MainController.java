@@ -37,6 +37,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @FXML
     private DetailController DC=new DetailController();
     @FXML
+    private TableController TC=new TableController();
+    @FXML
     private TextField Tourname;
     @FXML
     private Label TourListLabel,mainlabel;
@@ -130,10 +132,12 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
                 TMC.setTT(currentTour,currentTourId);
 
                  tim.BuildTourDescription();
-                 DescriptionController.descriptionViewModel.Desvription.set(tim.Description);
+                 DescriptionController.descriptionViewModel.Description.set(tim.FinalDescription);
 
                 mainlabel.setText(currentTour);
 
+                TC.setTableinfor(currentTour,currentTourId);
+                TableController.tableViewModel.Loglabel.set(currentTour+" Logs:");
                 TableController.tableViewModel.settourLogs(currentTourId);
 
             }
@@ -146,7 +150,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
                 case 2:
                     DetailController.Tname=currentTour;
                     try {
-                        WindowController.Windowlunch("Detail.fxml",300,200);
+                        WindowController.Windowlunch("Detail.fxml",400,400);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

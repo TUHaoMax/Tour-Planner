@@ -23,6 +23,6 @@ public class DescriptionController implements Initializable, EventHandler<Action
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Description.textProperty().bind(descriptionViewModel.Desvription);
+        Description.textProperty().bind(descriptionViewModel.Description);
     }
 }

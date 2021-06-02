@@ -14,6 +14,7 @@ public class DataRst {
         ArrayList<String> NameList=new ArrayList<String>();
         ArrayList<String> destinationList=new ArrayList<>();
         ArrayList<String> DepartureList=new ArrayList<>();
+        ArrayList<String> DescriptionList=new ArrayList<>();
         ResultSet resultSet= ToursData.Getsql(SQL.Tours_selectall);
 
         try {
@@ -22,6 +23,7 @@ public class DataRst {
                 IDList.add(resultSet.getInt("id"));
                 destinationList.add(resultSet.getString("destination"));
                 DepartureList.add(resultSet.getString("Departure"));
+                DescriptionList.add(resultSet.getString("description"));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -31,7 +33,7 @@ public class DataRst {
         DataList.add(DepartureList);
         DataList.add(destinationList);
         DataList.add(IDList);
-
+        DataList.add(DescriptionList);
     return DataList;
 
     }

@@ -32,7 +32,9 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
     @FXML
     private TextField Departure,Destination,Duration,Distance;
     @FXML
-    private Button ADDTourinfor,ADDLog;
+    private TextArea Description;
+    @FXML
+    private Button ADDTourinfor,ADDLog,ADD_DS;
     @FXML
     private DatePicker Date;
     @FXML
@@ -58,23 +60,18 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
       if(event.getSource()==ADDTourinfor){
-          if(Destination.textProperty().getValue().equals("")){
+          if(!Departure.textProperty().getValue().equals("")){
               tmViewModel.UPdateTDP(Departure.getText(),TourID);
-              logger.debug("{} - ADD Departure ",Tourname);
+              logger.debug("{} - ADD Departure {}",Tourname,Departure.getText());
           }
-          else if(Departure.textProperty().getValue().equals("")){
+          else if(!Destination.textProperty().getValue().equals("")){
               tmViewModel.UPdateTDT(Destination.getText(),TourID);
-              logger.debug("{} - ADD Destination",Tourname);
-          }else {
-              tmViewModel.UPdateT(Departure.getText(),Destination.getText(),TourID);
-              logger.debug("{} - ADD Departure and Destination",Tourname);
+              logger.debug("{} - ADD Destination {}",Tourname,Destination.getText());
           }
       }
 
             if (event.getSource() == ADDLog) {
-
-
-                if(Date.getValue()==null || Duration.getText()==null||Rating.getValue()==null||WeatherCB.getValue()==null||Distance.getText()==null){
+                if(Date.getValue()==null || Duration.getText()=="" ||Rating.getValue()==null||WeatherCB.getValue()==null||Distance.getText()==""){
                     logger.debug("error");
                     ErrorController.msg="Log information is incomplete";
                     try {
@@ -83,16 +80,20 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
                         e.printStackTrace();
                     }
                 }else {
-                    logger.debug("Log insert");
                     tmViewModel.insertLog(java.sql.Date.valueOf(Date.getValue().toString()), Time.valueOf(Duration.getText()),
                             TourID, Rating.getValue(), WeatherCB.getValue(), Integer.parseInt(Distance.getText()));
+                    logger.debug("Log insert");
+                    TableController.tableViewModel.settourLogs(TourID);
                 }
-
-
 
             }
 
-
+            if(event.getSource()==ADD_DS){
+                if(Description.getText()!=""){
+                    tmViewModel.UPdataTDS(Description.getText(),TourID);
+                    logger.debug("{}-> Description : {}  insert",Tourname,Description.getText());
+                }
+            }
 
     }
 }

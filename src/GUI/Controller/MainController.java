@@ -115,7 +115,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 
                 TMC.setTT(currentTour,currentTourId);
 
-                DescriptionController.listViewModel.Tname.set(currentTour);
+                DescriptionController.descriptionViewModel.Desvription.set(currentTour);
 
                 mainlabel.setText(currentTour);
                 LogsLabel.setText(currentTour+" "+" Logs:");

@@ -1,6 +1,6 @@
 package GUI.Controller;
 
-import GUI.VIewModel.ListViewModel;
+import GUI.VIewModel.DescriptionViewModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,10 +11,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DescriptionController implements Initializable, EventHandler<ActionEvent> {
-    public static ListViewModel listViewModel=new ListViewModel();
+
+    public static DescriptionViewModel descriptionViewModel=new DescriptionViewModel();
 
     @FXML
-    private TextArea test;
+    private TextArea Description;
     @Override
     public void handle(ActionEvent event) {
 
@@ -22,6 +23,6 @@ public class DescriptionController implements Initializable, EventHandler<Action
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        test.textProperty().bind(listViewModel.Tname);
+        Description.textProperty().bind(descriptionViewModel.Desvription);
     }
 }

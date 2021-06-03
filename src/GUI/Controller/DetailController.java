@@ -51,7 +51,7 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
     public void handle(ActionEvent event) {
        if(event.getSource()==Update){
            if(Departure.getText()=="" || Destination.getText()==""){
-               logger.debug("error");
+               logger.debug("error information is incomplete");
                ErrorController.msg="information is incomplete";
                try {
                    WindowController.Windowlunch("error.fxml",400,300);
@@ -60,10 +60,10 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
                }
            }else {
                tmViewModel.UPdateT(Departure.getText(),Destination.getText(),tourinformanager.TourId);
-               logger.debug("Tour:{} : {} -> {} update",Tname,Departure.getText(),Destination.getText());
+
                if(Description.getText()!=null && Description.getText()!=""){
                    tmViewModel.UPdataTDS(Description.getText(),tourinformanager.TourId);
-                   logger.debug("{}-> Description : {}  insert",Tname,Description.getText());
+
 
                }
                tourinformanager.settour(Tname);

@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import BusinessLayer.tourinformanager;
+import GUI.VIewModel.ImExportViewModel;
 import GUI.VIewModel.ListViewModel;
 import GUI.VIewModel.ReportingViewModel;
 import javafx.beans.value.ChangeListener;
@@ -10,10 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
@@ -29,10 +27,12 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     private static final Logger logger= LoggerFactory.getLogger(MainController.class);
 
     ReportingViewModel reporting=new ReportingViewModel();
-    ListViewModel listViewModel=new ListViewModel();
+   public static ListViewModel listViewModel=new ListViewModel();
     tourinformanager tim=new tourinformanager();
+    ImExportViewModel IEVM=new ImExportViewModel();
 
-
+    @FXML
+    private MenuItem Export,Import;
     @FXML
     public ListView<String> ListTours;
     @FXML
@@ -87,6 +87,12 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 
         if(actionEvent.getSource()==PDF){
             reporting.PDfcreate(currentTour);
+        }
+        if(actionEvent.getSource()==Export){
+            IEVM.Export(currentTour);
+        }
+        if(actionEvent.getSource()==Import){
+            IEVM.Import();
         }
 
     }

@@ -8,7 +8,7 @@ class tourinformanagerTest {
     void gettourinfor() {
         tourinformanager tim=new tourinformanager();
 
-        tim.settour("Tour-1");
+        tim.settour("Tour 1");
 
         System.out.println(tim.Departure);
         System.out.println(tim.index);
@@ -18,4 +18,13 @@ class tourinformanagerTest {
         System.out.println(tim.tourinforlist);
     }
 
+    @Test
+    void setTourclass(){
+        tourinformanager tim=new tourinformanager();
+        tim.settour("Tour 3");
+        System.out.println(tim.tour.getName());
+        System.out.println(tim.tour.getDestination());
+        System.out.println(tim.tour.getDeparture());
+        System.out.println(tim.tour.getDescription());
+    }
 }

@@ -32,7 +32,6 @@ public class TableViewModel {
                  lim.Logsinforlist.get(4).get(i),lim.Logsinforlist.get(5).get(i),
                  lim.Logsinforlist.get(6).get(i)));
       }
-
     }
 
     public void deletelog(int ID){

@@ -41,6 +41,12 @@ public class tourinformanager  {
     }
 
     public void BuildTourDescription(){
+        if(Departure==null){
+            Departure="";
+        }
+        if(destination==null){
+            destination="";
+        }
         FinalDescription="";
         FinalDescription=FinalDescription.concat(Name).concat(":\n").concat(Departure).concat("--->").
                 concat(destination).concat("\n\n").concat(Description);

@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BusinessLayer.tourinformanager;
 import GUI.VIewModel.TMViewModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,7 +20,7 @@ import java.util.ResourceBundle;
 @Getter
 public class TMController implements Initializable, EventHandler<ActionEvent> {
     private static final Logger logger= LoggerFactory.getLogger(TMController.class);
-
+    tourinformanager tim=new tourinformanager();
     TMViewModel tmViewModel=new TMViewModel();
 
     private static int TourID;
@@ -64,10 +65,13 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
               tmViewModel.UPdateTDP(Departure.getText(),TourID);
               logger.debug("{} - ADD Departure {}",Tourname,Departure.getText());
           }
-          else if(!Destination.textProperty().getValue().equals("")){
+          if(!Destination.textProperty().getValue().equals("")){
               tmViewModel.UPdateTDT(Destination.getText(),TourID);
               logger.debug("{} - ADD Destination {}",Tourname,Destination.getText());
           }
+          resetDescription();
+          Departure.setText("");
+          Destination.setText("");
       }
 
             if (event.getSource() == ADDLog) {
@@ -84,6 +88,8 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
                             TourID, Rating.getValue(), WeatherCB.getValue(), Integer.parseInt(Distance.getText()));
                     logger.debug("Log insert");
                     TableController.tableViewModel.settourLogs(TourID);
+                    Duration.setText("");
+                    Distance.setText("");
                 }
 
             }
@@ -92,8 +98,16 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
                 if(Description.getText()!=""){
                     tmViewModel.UPdataTDS(Description.getText(),TourID);
                     logger.debug("{}-> Description : {}  insert",Tourname,Description.getText());
+                    resetDescription();
+                    Description.setText("");
                 }
             }
 
+    }
+
+    private void resetDescription(){
+        tim.settour(Tourname);
+        tim.BuildTourDescription();
+        DescriptionController.descriptionViewModel.Description.set(tim.FinalDescription);
     }
 }

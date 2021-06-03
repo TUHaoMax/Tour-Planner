@@ -10,17 +10,6 @@ class ReportingViewModelTest {
        rpm.PDfcreate("Tour-1");
     }
 
-    @Test
-    void Createmsg(){
-        ReportingViewModel rpm=new ReportingViewModel();
-        rpm.Creatmsg("Tour-1");
-        System.out.println(rpm.getMsg());
 
-    }
-    @Test
-    void Date(){
-        ReportingViewModel rpm=new ReportingViewModel();
-        rpm.getDatetime();
-        System.out.println(rpm.getDate());
-    }
+
 }

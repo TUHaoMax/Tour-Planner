@@ -38,6 +38,16 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
     Stage stage;
 
     @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        test.setText(Tname);
+        tourinformanager.settour(Tname);
+        Departure.setText(tourinformanager.getDeparture());
+        Destination.setText(tourinformanager.getDestination());
+
+    }
+
+
+    @Override
     public void handle(ActionEvent event) {
        if(event.getSource()==Update){
            if(Departure.getText()=="" || Destination.getText()==""){
@@ -67,12 +77,5 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
         stage.close();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-               test.setText(Tname);
-               tourinformanager.settour(Tname);
-               Departure.setText(tourinformanager.getDeparture());
-               Destination.setText(tourinformanager.getDestination());
 
-    }
 }

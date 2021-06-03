@@ -42,6 +42,15 @@ public class LogDetailController implements Initializable, EventHandler<ActionEv
     public static int TourID;
 
     @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        MainLabel.setText("Tour: ["+TourID+"] "+Tname+" LogId: "+LogID);
+        WeatherCB.getItems().addAll(Weather);
+        WeatherCB.setOnAction(this::ChoiceWeather);
+    }
+
+
+
+    @Override
     public void handle(ActionEvent event) {
         if(event.getSource()==update){
             if(Duration.getText()!="" && Duration.getText()!=null){
@@ -70,12 +79,7 @@ public class LogDetailController implements Initializable, EventHandler<ActionEv
         stage.close();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        MainLabel.setText("Tour: ["+TourID+"] "+Tname+" LogId: "+LogID);
-        WeatherCB.getItems().addAll(Weather);
-        WeatherCB.setOnAction(this::ChoiceWeather);
-    }
+
 
     private void ChoiceWeather(ActionEvent event){
         currentweather=WeatherCB.getValue();

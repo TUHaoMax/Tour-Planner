@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 @Setter
 public class ListViewModel {
     private static final Logger logger= LoggerFactory.getLogger(ListViewModel.class);
+
     private ObservableList<String> namelist;
 
 

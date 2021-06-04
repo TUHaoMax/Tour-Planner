@@ -1,10 +1,13 @@
 package DataALayer;
+import APP.APPLauncher;
+
 import java.sql.*;
 
 public class ToursData {
-    private  static String url="jdbc:postgresql://localhost:5432/TourPlanner";
-    private static String user="postgres";
-    private static String password="root";
+
+    private  static String url=APPLauncher.config.url;
+    private static String user=APPLauncher.config.user;
+    private static String password=APPLauncher.config.password;
     private static PreparedStatement mystm=null;
     private static Connection myconect=null;
 
@@ -18,7 +21,6 @@ public class ToursData {
     }
 
     public static void connect(){
-
         try {
             Class.forName("org.postgresql.Driver");
             myconect= DriverManager.getConnection(url,user,password);

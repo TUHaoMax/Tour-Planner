@@ -1,0 +1,9 @@
+{"url":"jdbc:postgresql://localhost:5432/TourPlanner",
+  "user":"postgres",
+  "password":"root",
+  "MapPath":"src/Resources/MapImage/",
+  "RoutePath":"../../Resources/MapImage/",
+  "MapAPiKey":"&key=TG2u1eZTfhs0xaKG1REZ8w0H2P3zS5on",
+  "ViewPath":"../Resources/Viewfxml/",
+  "MapUrl":"https://www.mapquestapi.com/staticmap/v5/map?",
+  "MapSize":"&size=400,300"}

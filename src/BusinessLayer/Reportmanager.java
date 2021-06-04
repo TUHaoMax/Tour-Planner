@@ -33,13 +33,15 @@ public class Reportmanager {
             fileChooser.setInitialFileName(name+"_"+date);
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF file","*.pdf"));
             File file=fileChooser.showSaveDialog(null);
+            if(file!=null){
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(file));
-            document.open();
-            document.add(paragraph);
-            document.close();
-            logger.debug("{} Reporting PDF create",name);
-            msg="";
+                document.open();
+                document.add(paragraph);
+                document.close();
+                logger.debug("{} Reporting PDF create", name);
+                msg = "";
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

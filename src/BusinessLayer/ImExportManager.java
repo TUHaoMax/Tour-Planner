@@ -1,11 +1,8 @@
 package BusinessLayer;
 
-import TourModels.JsonMsg;
 import TourModels.Tour;
 import TourModels.TourLogs;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import javafx.stage.FileChooser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,33 +12,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ImExportManager {
     private static final Logger logger= LoggerFactory.getLogger(ImExportManager.class);
 
-    public static JsonMsg getjson(String msg){
-        Gson gson=new Gson();
-        JsonMsg jsonmsg=gson.fromJson(msg,JsonMsg.class);
-        return jsonmsg;
-    }
 
-    public static List<JsonMsg> getjsonlist(String msg){
-        Gson gson=new Gson();
-        Type t = new TypeToken<List<JsonMsg>>() {}.getType();
-        List<JsonMsg> jsonmsgs = gson.fromJson(msg, t);
-        return jsonmsgs;
-    }
-
-    public static List<String> getnokeyjsonlist(String msg){
-        Gson gson=new Gson();
-        Type t = new TypeToken<List<String>>() {}.getType();
-        List<String> messageList = gson.fromJson(msg, t);
-        return messageList;
-    }
 
     public static String BuildJson(Tour tour, ArrayList<TourLogs> logsArrayList){
             String Msg="[";
@@ -75,8 +52,11 @@ public class ImExportManager {
         fileChooser.setInitialFileName(name);
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json file","*.json"));
         File file=fileChooser.showSaveDialog(null);
-        saveExport(file,Msg);
-        logger.debug("Export path {} ",file.getAbsolutePath());
+        if(file!=null) {
+            saveExport(file, Msg);
+            logger.debug("Export path {} ", file.getAbsolutePath());
+            logger.debug("{} Export",name);
+        }
     }
 
     private static void saveExport(File file, String Msg){

@@ -8,6 +8,7 @@ public class TourPlanner {
 
 
     public static void main(String[] args) throws Exception{
+
         APPLauncher.fxmlname= "Tour_Planner.fxml";
         APPLauncher.main(args);
         logger.debug("TourPlanner shut down");

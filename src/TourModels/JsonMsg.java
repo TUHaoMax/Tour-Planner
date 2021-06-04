@@ -17,4 +17,5 @@ public class JsonMsg {
     private int Distance;
 
 
+
 }

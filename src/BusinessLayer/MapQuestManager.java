@@ -35,20 +35,23 @@ public class MapQuestManager {
     }
 
     public static void sendHttp(){
-        start=start.concat(startName);
-        end=end.concat(endName);
-       logger.debug("{}",(url+start+end+size+key));
-        HttpClient client=HttpClient.newHttpClient();
-        HttpRequest request=HttpRequest.newBuilder()
-                .uri(URI.create(url+start+end+size+key))
-                .GET()
-                .header("accept","application/json")
-                .build();
 
-            client.sendAsync(request,HttpResponse.BodyHandlers.ofInputStream())
-                            .thenApplyAsync(HttpResponse::body)
-                            .thenApply(MapQuestManager::getMap)
-                             .isDone();
+            start = start.concat(startName);
+            end = end.concat(endName);
+
+            logger.debug("{}", (url + start + end + size + key));
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url + start + end + size + key))
+                    .GET()
+                    .header("accept", "application/json")
+                    .build();
+
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream())
+                    .thenApplyAsync(HttpResponse::body)
+                    .thenApply(MapQuestManager::getMap)
+                    .isDone();
+
 
         start="start=";
         end="&end=";

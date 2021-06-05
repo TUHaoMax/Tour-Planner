@@ -31,6 +31,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     tourinformanager tim=new tourinformanager();
     ImExportViewModel IEVM=new ImExportViewModel();
 
+
     @FXML
     private MenuItem Export,Import;
     @FXML
@@ -53,8 +54,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     public static String currentTour;
     public static int currentTourId;
     public static int currentLogId;
-
-
+    int CheckTour=0;
+    int n=0;
 
 
 
@@ -78,8 +79,19 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @Override
     public void handle(ActionEvent actionEvent) {
         if(actionEvent.getSource()==plus){
-            int i=listViewModel.addTour(Tourname.textProperty().getValue());
-           Tourname.setText("");
+            if(CheckTour==1){
+                logger.debug("error {} already exists",Tourname.getText());
+                ErrorController.msg=Tourname.getText()+" already exists";
+                try {
+                    WindowController.Windowlunch("error.fxml",400,300);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }else {
+                int i=listViewModel.addTour(Tourname.textProperty().getValue());
+                Tourname.setText("");
+            }
+
         }
         if(actionEvent.getSource()==minus){
             int i=listViewModel.deletecurrentTour(currentTour);
@@ -103,24 +115,38 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
             Tourname.textProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    if(n>=listViewModel.getNamelist().size()){
+                             n=0;
+                        CheckTour=0;
+                    }
                     if (t1.equals("")) {
                         TourListLabel.setText("Tours List");
                     } else {
                         TourListLabel.setText(t1);
                     }
                     FilteredList<String> FL = listViewModel.getNamelist().filtered(new Predicate<String>() {
+
                         @Override
                         public boolean test(String s) {
                             if (s.contains(Tourname.getText())) {
                                 if (!Tourname.getText().equals("")) {
                                     logger.debug("Tour finded {}", s);
                                 }
+                                if(s.equals(Tourname.getText())){
+                                    CheckTour=1;
+                                }
+                                  n++;
                                 return true;
                             } else {
+                                if(s.equals(Tourname.getText())){
+                                    CheckTour=1;
+                                }
+                               n++;
                                 return false;
                             }
                         }
                     });
+                    logger.debug("have or dont have {}",CheckTour);
                     ListTours.setItems(FL);
                 }
             });

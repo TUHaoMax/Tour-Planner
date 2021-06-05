@@ -16,7 +16,7 @@ public class RouteViewModel {
     public void getMap(){
         tim.settour(TourName.getValue());
         MapQuestManager.setinfor(TourName.getValue(),tim.getDeparture(),tim.getDestination());
-        //MapQuestManager.sendHttp();
+        MapQuestManager.sendHttp();
     }
 
     public void test(){

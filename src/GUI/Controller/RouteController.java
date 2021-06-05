@@ -5,6 +5,7 @@ import BusinessLayer.MapQuestManager;
 import GUI.VIewModel.RouteViewModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,7 +16,10 @@ import javafx.scene.image.ImageView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,7 +34,8 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
    @FXML
    private Label Label;
     Image image;
-
+    BufferedImage tempCard;
+    File file;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,24 +46,8 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
              @Override
              public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
 
+                     MapCheck();
 
-                 File file=new File(Searchpath+Label.getText()+".jpg");
-                 if(file.exists()){
-                     logger.debug("have {}",Label.getText());
-                     logger.debug("{} ",path+Label.getText()+".jpg");
-
-                  image=new Image(Label.getText()+".jpg");
-                    Map.setImage(image);
-                 }/*else {
-                     routeViewModel.getMap();
-                     try {
-                         Thread.sleep(2000);
-                     } catch (InterruptedException e) {
-                         e.printStackTrace();
-                     }
-                     image=new Image(Label.getText()+".jpg");
-                     Map.setImage(image);
-                 }*/
              }
          });
      
@@ -67,7 +56,36 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
 
  @Override
  public void handle(ActionEvent event) {
-     routeViewModel.getMap();
+
+ }
+
+ private void MapCheck(){
+     file=new File(Searchpath+Label.getText()+".jpg");
+     if(file.exists()){
+         logger.debug("have {}",Label.getText());
+         logger.debug("{} ",path+Label.getText()+".jpg");
+         try {
+             tempCard=ImageIO.read(file);
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+         image= SwingFXUtils.toFXImage(tempCard, null );
+         Map.setImage(image);
+     }else {
+         routeViewModel.getMap();
+         try {
+             Thread.sleep(1000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+         try {
+             Thread.sleep(500);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+         MapCheck();
+     }
  }
 
 }

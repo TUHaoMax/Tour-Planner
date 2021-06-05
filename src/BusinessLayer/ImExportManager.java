@@ -7,7 +7,6 @@ import javafx.stage.FileChooser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -78,13 +77,13 @@ public class ImExportManager {
         File file=fileChooser.showOpenDialog(null);
         if(file!=null){
             logger.debug("Import json file {} ",file.getAbsolutePath());
-            Desktop desktop=Desktop.getDesktop();
+           // Desktop desktop=Desktop.getDesktop();
             try {
                 Scanner scan=new Scanner(file);
                 while (scan.hasNextLine()){
                     msg=msg.concat(scan.nextLine()+"\n");
                 }
-                desktop.open(file);
+               // desktop.open(file);
             } catch (IOException e) {
                 e.printStackTrace();
             }

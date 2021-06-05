@@ -1,13 +1,13 @@
 package DataALayer;
-import APP.APPLauncher;
+import APP.Config;
 
 import java.sql.*;
 
 public class ToursData {
-
-    private  static String url=APPLauncher.config.url;
-    private static String user=APPLauncher.config.user;
-    private static String password=APPLauncher.config.password;
+    public static Config config=new Config();
+    private static String url="";
+    private static String user="";
+    private static String password="";
     private static PreparedStatement mystm=null;
     private static Connection myconect=null;
 
@@ -21,6 +21,10 @@ public class ToursData {
     }
 
     public static void connect(){
+        config= JsonParse.getConfig(JsonParse.readConfig());
+        url=config.url;
+        user=config.user;
+        password=config.password;
         try {
             Class.forName("org.postgresql.Driver");
             myconect= DriverManager.getConnection(url,user,password);

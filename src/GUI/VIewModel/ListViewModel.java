@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 @Setter
 public class ListViewModel {
     private static final Logger logger= LoggerFactory.getLogger(ListViewModel.class);
-    RouteViewModel routeViewModel=new RouteViewModel();
+    RouteViewModel routeViewModel;
     private ObservableList<String> namelist;
     tourinformanager tim;
 
@@ -37,6 +37,7 @@ public class ListViewModel {
     public int deletecurrentTour(String currentTour){
         ToursData.Dosql(SQL.Tours_Delete,currentTour);
         logger.debug("{} Delete",currentTour);
+        routeViewModel=new RouteViewModel();
         routeViewModel.deleteImage(currentTour);
         obserlist();
         return 0;

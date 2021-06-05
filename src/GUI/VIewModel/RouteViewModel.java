@@ -2,8 +2,10 @@ package GUI.VIewModel;
 
 
 import APP.APPLauncher;
+import APP.Config;
 import BusinessLayer.MapQuestManager;
 import BusinessLayer.tourinformanager;
+import DataALayer.JsonParse;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.Image;
 import org.slf4j.Logger;
@@ -13,11 +15,20 @@ import java.io.File;
 
 public class RouteViewModel {
     private static final Logger logger= LoggerFactory.getLogger(RouteViewModel.class);
+    public static Config config=new Config();
+
     public SimpleStringProperty TourName=new SimpleStringProperty("Home"+".jpg");
     tourinformanager tim;
-    private String path= APPLauncher.config.RoutePath;
+    private String path;
     private String Searchpath=APPLauncher.config.Searchpath;
-    public Image image=new Image(getClass().getResourceAsStream(path+TourName.getValue()));
+    public Image image;
+
+
+    public RouteViewModel() {
+        config= JsonParse.getConfig(JsonParse.readConfig());
+        path= config.RoutePath;
+        this.image =new Image(getClass().getResourceAsStream(path+TourName.getValue()));
+    }
 
     public void getMap(){
         tim=new tourinformanager();
@@ -31,6 +42,7 @@ public class RouteViewModel {
         tim=new tourinformanager();
         tim.settour(TourName.getValue());
           if(tim.Departure=="" || tim.destination==""){
+              logger.debug("no location");
               return 0;
           }
           return 1;

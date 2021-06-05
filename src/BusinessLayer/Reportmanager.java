@@ -109,12 +109,11 @@ public class Reportmanager {
 
     protected void setLogs(){
         for (int i=0;i<lim.Logslist.size();i++){
-            Logs=Logs.concat("\n\nLog "+(i+1)+" :\n").concat("Date : ").concat(String.valueOf(lim.Logslist.get(i).getLogDate())+"  ")
+            Logs=Logs.concat("\n\nLog "+i+1+" :\n").concat("Date : ").concat(String.valueOf(lim.Logslist.get(i).getLogDate())+"  ")
                     .concat("duration : ").concat(String.valueOf(lim.Logslist.get(i).getLogtime())+"  ")
                     .concat("distance : ").concat(String.valueOf(lim.Logslist.get(i).getDistance())+"\n")
                     .concat("weather : ").concat(lim.Logslist.get(0).getWeather())
-                    .concat("   rating : ").concat(String.valueOf(lim.Logslist.get(i).getRating()))
-                    .concat("   Transport :").concat(lim.Logslist.get(i).getTransport());
+                    .concat("   rating : ").concat(String.valueOf(lim.Logslist.get(i).getRating()));
         }
     }
 
@@ -148,9 +147,9 @@ public class Reportmanager {
 
 
     public void test(String name) throws MalformedURLException, FileNotFoundException, DocumentException {
-        ImageData data = ImageDataFactory.create("src/Resources/MapImage/Home.jpg");
+        /*ImageData data = ImageDataFactory.create("src/Resources/MapImage/Home.jpg");
         Image image = new Image(data);
-        Paragraph paragraph=new Paragraph("test test ++<<<>>>test");
+        paragraph=new Paragraph("test test ++<<<>>>test");
         paragraph.add("\n{}test test ++<<<>>>test").addStyle(style_0);
        setStyle();
         AreaBreak aB = new AreaBreak();
@@ -163,7 +162,7 @@ public class Reportmanager {
         //pdfDocument.addNewPage();
         document.add(aB);
         document.add(paragraph);
-        document.close();
+        document.close();*/
     }
 
 

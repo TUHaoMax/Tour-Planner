@@ -14,7 +14,7 @@ class ReportmanagerTest {
     @Test
     void creatparagraph() throws MalformedURLException, DocumentException, FileNotFoundException {
         Reportmanager reportmanager=new Reportmanager();
-        reportmanager.test("test");
+        reportmanager.test("Tour 1");
     }
 
     @Test

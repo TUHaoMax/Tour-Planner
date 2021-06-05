@@ -7,6 +7,6 @@ class MapQuestManagerTest {
     @Test
     void http() {
 
-        MapQuestManager.sendHttp();
+        //MapQuestManager.sendHttp();
     }
 }

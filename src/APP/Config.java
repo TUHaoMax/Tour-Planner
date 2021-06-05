@@ -11,4 +11,5 @@ public class Config {
     public  String MapUrl;
     public  String MapSize;
     public  String RoutePath;
+    public  String Searchpath;
 }

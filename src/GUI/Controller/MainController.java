@@ -139,8 +139,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
                 tim.settour(currentTour);
                 currentTourId= tim.TourId;
 
-                RouteController.routeViewModel.MapName.set("test_1.jpg");
-                System.out.println(RouteController.routeViewModel.MapName);
+                RouteController.routeViewModel.TourName.set(currentTour);
 
                 TMC.setTT(currentTour,currentTourId);
 

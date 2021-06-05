@@ -68,4 +68,12 @@ public class JsonParse {
             }
             return msg;
     }
+    public static void findtest(){
+        File file=new File("src/Resources/MapImage/1111");
+        if(file.exists()){
+            System.out.println("have");
+        }else {
+            System.out.println("no");
+        }
+    }
 }

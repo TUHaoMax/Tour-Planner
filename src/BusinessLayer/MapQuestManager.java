@@ -1,6 +1,8 @@
 package BusinessLayer;
 
 import APP.APPLauncher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,7 +15,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class MapQuestManager {
-
+    private static final Logger logger= LoggerFactory.getLogger(MapQuestManager.class);
     public static HttpURLConnection connection;
     private static String url=APPLauncher.config.MapUrl;
     private static String size=APPLauncher.config.MapSize;
@@ -22,28 +24,41 @@ public class MapQuestManager {
     private static String start="start=";
     private static String end="&end=";
 
+    public static String TourName;
+    public static String startName;
+    public static String endName;
+
+    public static void setinfor(String Tname,String Sname,String eName){
+        TourName=Tname;
+        startName=Sname;
+        endName=eName;
+    }
+
     public static void sendHttp(){
-        start=start.concat("wien");
-        end=end.concat("Innsbruck");
-        System.out.println(url+start+end+size+key);
+        start=start.concat(startName);
+        end=end.concat(endName);
+       logger.debug("{}",(url+start+end+size+key));
         HttpClient client=HttpClient.newHttpClient();
         HttpRequest request=HttpRequest.newBuilder()
                 .uri(URI.create(url+start+end+size+key))
                 .GET()
                 .header("accept","application/json")
                 .build();
-        client.sendAsync(request,HttpResponse.BodyHandlers.ofInputStream())
-                        .thenApplyAsync(HttpResponse::body)
-                        .thenApply(MapQuestManager::getMap)
-                         .join();
 
+            client.sendAsync(request,HttpResponse.BodyHandlers.ofInputStream())
+                            .thenApplyAsync(HttpResponse::body)
+                            .thenApply(MapQuestManager::getMap)
+                             .isDone();
+
+        start="start=";
+        end="&end=";
     }
 
 
     public static String getMap(InputStream inputStream) {
 
                try {
-                   FileOutputStream out = new FileOutputStream(path+"test_1.jpg");
+                   FileOutputStream out = new FileOutputStream(path+TourName+".jpg");
                    int c = 0;
                    byte[] b = new byte[1024];
 
@@ -52,6 +67,7 @@ public class MapQuestManager {
                            out.write(b, 0, c);
                        }
                        out.flush();
+                       out.close();
                        inputStream.close();
                    } catch (IOException e) {
                        e.printStackTrace();
@@ -60,7 +76,7 @@ public class MapQuestManager {
                } catch (FileNotFoundException e) {
                    e.printStackTrace();
                }
-
+        logger.debug("{} Map got",TourName);
         return "done";
     }
 }

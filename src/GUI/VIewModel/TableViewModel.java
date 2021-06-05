@@ -9,6 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -17,6 +19,7 @@ import java.sql.Time;
 @Setter
 
 public class TableViewModel {
+    private static final Logger logger= LoggerFactory.getLogger(TableViewModel.class);
    private ObservableList<TourLogs> tourLogs= FXCollections.observableArrayList();
     public SimpleStringProperty Loglabel;
    public TableViewModel() {
@@ -36,6 +39,7 @@ public class TableViewModel {
 
     public void deletelog(int ID){
        ToursData.Dosql(SQL.Logs_Delete,ID);
+       logger.debug("Log {} Deleted",ID);
     }
 
     public void date_up(Date date,int Id){

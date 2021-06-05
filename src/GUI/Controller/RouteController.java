@@ -1,7 +1,6 @@
 package GUI.Controller;
 
 import APP.APPLauncher;
-import BusinessLayer.MapQuestManager;
 import GUI.VIewModel.RouteViewModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -24,7 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RouteController implements Initializable, EventHandler<ActionEvent> {
-    private static final Logger logger= LoggerFactory.getLogger(MapQuestManager.class);
+    private static final Logger logger= LoggerFactory.getLogger(RouteController.class);
    public static RouteViewModel routeViewModel=new RouteViewModel();
    private String path= APPLauncher.config.RoutePath;
    private String Searchpath=APPLauncher.config.Searchpath;
@@ -45,8 +44,22 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
          Label.textProperty().addListener(new ChangeListener<String>() {
              @Override
              public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    if(Label.getText()!=null) {
+                        int n=routeViewModel.inforCheck();
+                        if (n==1){
+                            //System.out.println("MapCheck");
+                            MapCheck();
+                        }else {
+                            //System.out.println("Home");
+                            image=new Image("Home.jpg");
+                            Map.setImage(image);
+                        }
 
-                     MapCheck();
+                    }else {
+                       // System.out.println("Home");
+                        image=new Image("Home.jpg");
+                        Map.setImage(image);
+                    }
 
              }
          });
@@ -58,6 +71,8 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
  public void handle(ActionEvent event) {
 
  }
+
+
 
  private void MapCheck(){
      file=new File(Searchpath+Label.getText()+".jpg");
@@ -84,6 +99,7 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
          } catch (InterruptedException e) {
              e.printStackTrace();
          }
+         logger.debug("recheck");
          MapCheck();
      }
  }

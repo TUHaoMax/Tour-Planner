@@ -52,7 +52,7 @@
                 </MenuBar>
                 <HBox spacing="10.0">
                     <children>
-                        <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours information" />
+                        <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours Name" />
                         <Button fx:id="plus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="37.0" text="+" />
                         <Button fx:id="minus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="35.0" text="-" />
                   <Label fx:id="mainlabel" prefHeight="25.0" prefWidth="83.0" HBox.hgrow="ALWAYS">

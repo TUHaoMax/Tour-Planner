@@ -60,7 +60,8 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Region prefHeight="28.0" prefWidth="116.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="summarizereport" onAction="#handle" mnemonicParsing="false" text="Button" />
                   <Button fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF" />
                     </children>
                     <padding>

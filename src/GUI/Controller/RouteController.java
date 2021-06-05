@@ -47,16 +47,16 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
                     if(Label.getText()!=null) {
                         int n=routeViewModel.inforCheck();
                         if (n==1){
-                            //System.out.println("MapCheck");
+
                             MapCheck();
                         }else {
-                            //System.out.println("Home");
+
                             image=new Image("Home.jpg");
                             Map.setImage(image);
                         }
 
                     }else {
-                       // System.out.println("Home");
+
                         image=new Image("Home.jpg");
                         Map.setImage(image);
                     }

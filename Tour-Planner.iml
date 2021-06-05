@@ -44,5 +44,9 @@
     <orderEntry type="library" name="itextpdf-5.5.9" level="project" />
     <orderEntry type="library" name="jackson:jackson-asl:0.9.3" level="project" />
     <orderEntry type="library" name="jackson:jackson-lgpl:0.9.3" level="project" />
+    <orderEntry type="library" name="io-7.1.15" level="project" />
+    <orderEntry type="library" name="itextpdf-5.5.91" level="project" />
+    <orderEntry type="library" name="layout-7.1.15" level="project" />
+    <orderEntry type="library" name="kernel-7.1.15" level="project" />
   </component>
 </module>

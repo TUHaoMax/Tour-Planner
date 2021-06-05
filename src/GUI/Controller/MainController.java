@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +48,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @FXML
     private Label TourListLabel,mainlabel;
     @FXML
-    private Button plus,minus,PDF,edit;
+    private Button plus,minus,PDF,edit,summarizereport;
 
 
 
@@ -76,6 +77,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 
     }
 
+    @SneakyThrows
     @Override
     public void handle(ActionEvent actionEvent) {
         if(actionEvent.getSource()==plus){
@@ -98,8 +100,25 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
         }
 
         if(actionEvent.getSource()==PDF){
-            reporting.PDfcreate(currentTour);
+            if(currentTour!=null && currentTour!=""){
+                    reporting.tourreport(currentTour);
+            }else {
+                logger.debug("error no select a tour");
+                ErrorController.msg="Please select a tour";
+                WindowController.Windowlunch("error.fxml",400,300);
+            }
         }
+
+        if(actionEvent.getSource()==summarizereport){
+                 if(listViewModel.getNamelist().size()!=0){
+                     reporting.summarizereport(listViewModel.getNamelist());
+                 }else {
+                     logger.debug("error no tour in Data");
+                     ErrorController.msg="no tour in Data";
+                     WindowController.Windowlunch("error.fxml",400,300);
+                 }
+        }
+
         if(actionEvent.getSource()==Export){
             IEVM.Export(currentTour);
         }

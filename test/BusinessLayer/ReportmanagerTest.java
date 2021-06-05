@@ -1,29 +1,25 @@
 package BusinessLayer;
 
+import GUI.VIewModel.ReportingViewModel;
+import com.itextpdf.text.DocumentException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 
 class ReportmanagerTest {
 
-    @Test
-    void PDfcreate() {
-    }
+
 
     @Test
-    void creatmsg() {
-        Reportmanager rpm=new Reportmanager();
-        rpm.Creatmsg("Tour-1");
-        System.out.println(rpm.getMsg());
-    }
-
-    @Test
-    void creatparagraph() {
+    void creatparagraph() throws MalformedURLException, DocumentException, FileNotFoundException {
+        Reportmanager reportmanager=new Reportmanager();
+        reportmanager.test("Tour 1");
     }
 
     @Test
     void getDatetime() {
-        Reportmanager rpm=new Reportmanager();
+        ReportingViewModel rpm=new ReportingViewModel();
         rpm.getDatetime();
         System.out.println(rpm.getDate());
     }

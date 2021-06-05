@@ -6,8 +6,9 @@ class ReportingViewModelTest {
 
     @Test
     void PDfcreate() {
-       ReportingViewModel rpm=new ReportingViewModel();
-       rpm.PDfcreate("Tour-1");
+          ReportingViewModel reportingViewModel=new ReportingViewModel();
+          reportingViewModel.getDatetime();
+        System.out.println(reportingViewModel.getDate());
     }
 
 

@@ -33,6 +33,8 @@
                             <items>
                                 <MenuItem fx:id="Export" mnemonicParsing="false" onAction="#handle" text="Export" />
                                 <MenuItem fx:id="Import" mnemonicParsing="false" onAction="#handle" text="import" />
+                                <MenuItem fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF report" />
+                                <MenuItem fx:id="summarizereport" mnemonicParsing="false" onAction="#handle" text="Report all" />
                             </items>
                         </Menu>
 
@@ -61,8 +63,6 @@
                      </font>
                   </Label>
                   <Region prefHeight="28.0" prefWidth="116.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="summarizereport" onAction="#handle" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF" />
                     </children>
                     <padding>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />

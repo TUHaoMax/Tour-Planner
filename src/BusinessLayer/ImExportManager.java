@@ -34,6 +34,7 @@ public class ImExportManager {
                 jsonObject.addProperty("weather",logsArrayList.get(i).getWeather());
                 jsonObject.addProperty("Rating",logsArrayList.get(i).getRating());
                 jsonObject.addProperty("Distance",logsArrayList.get(i).getDistance());
+                jsonObject.addProperty("Transport",logsArrayList.get(i).getTransport());
                 Msg=Msg.concat(jsonObject.toString()+",\n");
             }
             Msg=replaceLast(Msg,",","]");
@@ -47,7 +48,7 @@ public class ImExportManager {
     public static void Export(String Msg,String name){
         FileChooser fileChooser=new FileChooser();
         fileChooser.setTitle("Export");
-        fileChooser.setInitialDirectory(new File("C:/BIF/"));
+        fileChooser.setInitialDirectory(new File("C:/"));
         fileChooser.setInitialFileName(name);
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json file","*.json"));
         File file=fileChooser.showSaveDialog(null);
@@ -72,7 +73,7 @@ public class ImExportManager {
         String msg="";
         FileChooser fileChooser=new FileChooser();
         fileChooser.setTitle("Export");
-        fileChooser.setInitialDirectory(new File("C:/BIF/"));
+        fileChooser.setInitialDirectory(new File("C:/"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json file","*.json"));
         File file=fileChooser.showOpenDialog(null);
         if(file!=null){
@@ -88,6 +89,7 @@ public class ImExportManager {
                 e.printStackTrace();
             }
         }
+
         return msg;
     }
 

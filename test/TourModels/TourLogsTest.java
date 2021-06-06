@@ -16,7 +16,7 @@ class TourLogsTest {
             tourLogs.add(new TourLogs(lim.Logsinforlist.get(0).get(i),lim.Logsinforlist.get(1).get(i),
                     lim.Logsinforlist.get(2).get(i),lim.Logsinforlist.get(3).get(i),
                     lim.Logsinforlist.get(4).get(i),lim.Logsinforlist.get(5).get(i),
-                    lim.Logsinforlist.get(6).get(i)));
+                    lim.Logsinforlist.get(6).get(i),lim.Logsinforlist.get(7).get(i)));
         }
 
         for (int i=0;i<tourLogs.size();i++){

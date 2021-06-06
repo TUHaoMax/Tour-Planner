@@ -34,7 +34,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 
 
     @FXML
-    private MenuItem Export,Import;
+    private MenuItem Export,Import,PDF,summarizereport;
     @FXML
     public ListView<String> ListTours;
     @FXML
@@ -48,7 +48,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @FXML
     private Label TourListLabel,mainlabel;
     @FXML
-    private Button plus,minus,PDF,edit,summarizereport;
+    private Button plus,minus,edit;
 
 
 

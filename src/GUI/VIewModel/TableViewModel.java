@@ -33,7 +33,7 @@ public class TableViewModel {
          this.tourLogs.add(new TourLogs(lim.Logsinforlist.get(0).get(i),lim.Logsinforlist.get(1).get(i),
                  lim.Logsinforlist.get(2).get(i),lim.Logsinforlist.get(3).get(i),
                  lim.Logsinforlist.get(4).get(i),lim.Logsinforlist.get(5).get(i),
-                 lim.Logsinforlist.get(6).get(i)));
+                 lim.Logsinforlist.get(6).get(i),lim.Logsinforlist.get(7).get(i)));
       }
     }
 
@@ -44,21 +44,31 @@ public class TableViewModel {
 
     public void date_up(Date date,int Id){
        ToursData.Dosql(SQL.Logs_date_update,date,Id);
+        logger.debug("Date update: {}",date);
     }
 
     public void duration_up(Time Da,int Id){
        ToursData.Dosql(SQL.Logs_duration_update,Da,Id);
+        logger.debug("Duration update: {}",Da);
     }
 
     public void rating_up(int rating,int Id){
        ToursData.Dosql(SQL.Logs_rating_update,rating,Id);
+        logger.debug("Rating update: {}",rating);
     }
 
     public void weather_up(String weather,int Id){
        ToursData.Dosql(SQL.Logs_weather_update,weather,Id);
+        logger.debug("Weather update: {}",weather);
     }
 
     public void distance_up(int distance,int Id){
        ToursData.Dosql(SQL.Logs_distance_update,distance,Id);
+        logger.debug("Distance update: {}",distance);
+    }
+
+    public void transport_up(String transport,int Id){
+       ToursData.Dosql(SQL.Logs_transport_update,transport,Id);
+        logger.debug("transport update: {}",transport);
     }
 }

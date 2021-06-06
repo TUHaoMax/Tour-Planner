@@ -46,18 +46,28 @@ public class ImExportViewModel {
        Msg=ImExportManager.Import();
         List<JsonMsg> jsonMsgArrayList= JsonParse.getjsonlist(Msg);
         if(jsonMsgArrayList!=null) {
-            MainController.listViewModel.addTour(jsonMsgArrayList.get(0).getTourName());
-            tourinformanager = new tourinformanager();
-            tourinformanager.settour(jsonMsgArrayList.get(0).getTourName());
-            tmViewModel.UPdateT(jsonMsgArrayList.get(0).getDeparture(), jsonMsgArrayList.get(0).getDestination(), tourinformanager.TourId);
-            tmViewModel.UPdataTDS(jsonMsgArrayList.get(0).getDescription(), tourinformanager.TourId);
+            int x = MainController.listViewModel.CheckName(jsonMsgArrayList.get(0).getTourName());
+            if (x == 0) {
+                MainController.listViewModel.addTour(jsonMsgArrayList.get(0).getTourName());
+                tourinformanager = new tourinformanager();
+                tourinformanager.settour(jsonMsgArrayList.get(0).getTourName());
+                tmViewModel.UPdateT(jsonMsgArrayList.get(0).getDeparture(), jsonMsgArrayList.get(0).getDestination(), tourinformanager.TourId);
+                tmViewModel.UPdataTDS(jsonMsgArrayList.get(0).getDescription(), tourinformanager.TourId);
 
-            for (int i = 0; i < jsonMsgArrayList.size(); i++) {
-                tmViewModel.insertLog(java.sql.Date.valueOf(jsonMsgArrayList.get(i).getLogDate()), Time.valueOf(jsonMsgArrayList.get(i).getLogtime()), tourinformanager.TourId,
-                        jsonMsgArrayList.get(i).getRating(), jsonMsgArrayList.get(i).getWeather(), jsonMsgArrayList.get(i).getDistance());
+                for (int i = 0; i < jsonMsgArrayList.size(); i++) {
+                    tmViewModel.insertLog(java.sql.Date.valueOf(jsonMsgArrayList.get(i).getLogDate()), Time.valueOf(jsonMsgArrayList.get(i).getLogtime()), tourinformanager.TourId,
+                            jsonMsgArrayList.get(i).getRating(), jsonMsgArrayList.get(i).getWeather(), jsonMsgArrayList.get(i).getDistance(), jsonMsgArrayList.get(i).getTransport());
+                }
+            }else {
+                logger.debug("error TourName is already exists");
+                ErrorController.msg="TourName is already exists";
+                try {
+                    WindowController.Windowlunch("error.fxml",400,300);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-
     }
 
 }

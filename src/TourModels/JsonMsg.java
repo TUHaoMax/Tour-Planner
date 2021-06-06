@@ -15,7 +15,7 @@ public class JsonMsg {
     private String weather;
     private int Rating;
     private int Distance;
-
+    private String Transport;
 
 
 }

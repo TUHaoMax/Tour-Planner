@@ -1,6 +1,7 @@
 package BusinessLayer;
 
-import APP.APPLauncher;
+import APP.Config;
+import DataALayer.JsonParse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,11 +17,12 @@ import java.net.http.HttpResponse;
 
 public class MapQuestManager {
     private static final Logger logger= LoggerFactory.getLogger(MapQuestManager.class);
+    static Config config=new Config();
     public static HttpURLConnection connection;
-    private static String url=APPLauncher.config.MapUrl;
-    private static String size=APPLauncher.config.MapSize;
-    private static String key=APPLauncher.config.MapAPiKey;
-    private static String path=APPLauncher.config.MapPath;
+    private static String url="";
+    private static String size="";
+    private static String key="";
+    private static String path="";
     private static String start="start=";
     private static String end="&end=";
 
@@ -34,8 +36,16 @@ public class MapQuestManager {
         endName=eName;
     }
 
-    public static void sendHttp(){
+    private static void setConfig(){
+        config= JsonParse.getConfig(JsonParse.readConfig());
+         url=config.MapUrl;
+         size=config.MapSize;
+         key=config.MapAPiKey;
+         path=config.MapPath;
+    }
 
+    public static void sendHttp(){
+            setConfig();
             start = start.concat(startName);
             end = end.concat(endName);
 
@@ -50,7 +60,7 @@ public class MapQuestManager {
             client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream())
                     .thenApplyAsync(HttpResponse::body)
                     .thenApply(MapQuestManager::getMap)
-                    .isDone();
+                    .join();
 
 
         start="start=";
@@ -62,6 +72,7 @@ public class MapQuestManager {
 
                try {
                    FileOutputStream out = new FileOutputStream(path+TourName+".jpg");
+                   logger.debug("{}",path+TourName+".jpg");
                    int c = 0;
                    byte[] b = new byte[1024];
 

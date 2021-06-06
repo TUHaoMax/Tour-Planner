@@ -1,7 +1,6 @@
 package GUI.VIewModel;
 
 
-import APP.APPLauncher;
 import APP.Config;
 import BusinessLayer.MapQuestManager;
 import BusinessLayer.tourinformanager;
@@ -17,17 +16,18 @@ public class RouteViewModel {
     private static final Logger logger= LoggerFactory.getLogger(RouteViewModel.class);
     public static Config config=new Config();
 
-    public SimpleStringProperty TourName=new SimpleStringProperty("Home"+".jpg");
+    public SimpleStringProperty TourName=new SimpleStringProperty("Home");
     tourinformanager tim;
     private String path;
-    private String Searchpath=APPLauncher.config.Searchpath;
+    private String Searchpath;
     public Image image;
 
 
     public RouteViewModel() {
         config= JsonParse.getConfig(JsonParse.readConfig());
         path= config.RoutePath;
-        this.image =new Image(getClass().getResourceAsStream(path+TourName.getValue()));
+        Searchpath=config.Searchpath;
+        this.image =new Image(getClass().getResourceAsStream(path+TourName.getValue()+".jpg"));
     }
 
     public void getMap(){
@@ -48,7 +48,7 @@ public class RouteViewModel {
           return 1;
     }
     public void deleteImage(String name){
-      File file=new File("src/Resources/MapImage/"+name+".jpg");
+      File file=new File(Searchpath+name+".jpg");
         System.out.println(file.getAbsolutePath());
       if(file.exists()){
           file.delete();

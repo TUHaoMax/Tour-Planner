@@ -25,8 +25,8 @@
                 <TableView fx:id="TableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="Date" prefWidth="116.00001275539398" text="Date" />
-                        <TableColumn fx:id="Time" prefWidth="130.0" text="Duration" />
-                        <TableColumn fx:id="Distance" prefWidth="68.66665649414062" text="Distance" />
+                        <TableColumn fx:id="Time" prefWidth="109.3333511352539" text="Duration" />
+                        <TableColumn fx:id="Distance" prefWidth="89.33329772949219" text="Distance /KM" />
                         <TableColumn fx:id="Weather" minWidth="0.0" prefWidth="95.33334350585938" text="Weather" />
                         <TableColumn fx:id="Rating" prefWidth="63.99993896484375" text="Rating" />
                   <TableColumn fx:id="Transport" prefWidth="75.0" text="transport" />

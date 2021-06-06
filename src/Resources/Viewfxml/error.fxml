@@ -6,7 +6,7 @@
 
 <AnchorPane fx:id="errorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.ErrorController">
    <children>
-      <TextArea fx:id="errortext" layoutX="56.0" layoutY="58.0" prefHeight="92.0" prefWidth="301.0" editable="false"  promptText="error" />
-      <Button fx:id="Button" layoutX="188.0" layoutY="168.0" mnemonicParsing="false" onAction="#handle" text="Button" />
+      <TextArea fx:id="errortext" editable="false" layoutX="56.0" layoutY="58.0" prefHeight="92.0" prefWidth="301.0" promptText="error" />
+      <Button fx:id="Button" layoutX="188.0" layoutY="168.0" mnemonicParsing="false" onAction="#handle" text="Quit" />
    </children>
 </AnchorPane>

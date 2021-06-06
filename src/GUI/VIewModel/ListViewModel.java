@@ -25,7 +25,7 @@ public class ListViewModel {
         obserlist();
     }
 
-    private void obserlist(){
+    public void obserlist(){
         tim=new tourinformanager();
         if(tim.tourinforlist.size()!=0){
             this.namelist.setAll(tim.tourinforlist.get(0));
@@ -48,6 +48,20 @@ public class ListViewModel {
         logger.debug("{} insert",Tourname);
         obserlist();
         return 0;
+    }
+
+    public void UpTourName(String name,int Id){
+            ToursData.Dosql(SQL.Tours_UP_Name, name, Id);
+            logger.debug("{} ID: {}  Name Changed", name, Id);
+            obserlist();
+    }
+
+    public int CheckName(String name){
+        if(namelist.contains(name)){
+            return 1;
+        }else {
+            return 0;
+        }
     }
 
     private void ClearList() {

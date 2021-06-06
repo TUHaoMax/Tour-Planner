@@ -33,9 +33,9 @@ public class TMViewModel {
         logger.debug("{}-> Description : {}  insert",Tid,DS);
     }
 
-    public void insertLog(Date Date, Time DA, int Tid, int Rating, String weather, int distance){
+    public void insertLog(Date Date, Time DA, int Tid, int Rating, String weather, int distance,String transport){
 
-     ToursData.Dosql(SQL.Logs_insert,Date,DA,Tid,Rating,weather,distance);
+     ToursData.Dosql(SQL.Logs_insert,Date,DA,Tid,Rating,weather,distance,transport);
 
         logger.debug("Log insert");
     }

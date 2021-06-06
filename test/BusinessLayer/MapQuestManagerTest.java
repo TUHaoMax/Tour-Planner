@@ -6,7 +6,7 @@ class MapQuestManagerTest {
 
     @Test
     void http() {
-
-        //MapQuestManager.sendHttp();
+        MapQuestManager.setinfor("test","wien", "Graz");
+        MapQuestManager.sendHttp();
     }
 }

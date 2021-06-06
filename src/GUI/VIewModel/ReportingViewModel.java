@@ -22,7 +22,7 @@ public class ReportingViewModel {
     public  void tourreport(String name) throws MalformedURLException, FileNotFoundException {
         getDatetime();
         fileChooser.setTitle("Print report");
-        fileChooser.setInitialDirectory(new File("C:/BIF/"));
+        fileChooser.setInitialDirectory(new File("C:/"));
         fileChooser.setInitialFileName(name+"_"+date);
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF file","*.pdf"));
         File file=fileChooser.showSaveDialog(null);
@@ -35,7 +35,7 @@ public class ReportingViewModel {
     public void summarizereport(ObservableList<String> namelist) throws MalformedURLException, FileNotFoundException {
         getDatetime();
         fileChooser.setTitle("Print report");
-        fileChooser.setInitialDirectory(new File("C:/BIF/"));
+        fileChooser.setInitialDirectory(new File("C:/"));
         fileChooser.setInitialFileName("summarize-report"+"_"+date);
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF file","*.pdf"));
         File file=fileChooser.showSaveDialog(null);

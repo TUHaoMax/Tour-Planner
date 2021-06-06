@@ -1,7 +1,8 @@
 package GUI.Controller;
 
-import BusinessLayer.tourinformanager;
-import GUI.VIewModel.TMViewModel;
+import GUI.VIewModel.DetailViewModel;
+import GUI.VIewModel.ListViewModel;
+import GUI.VIewModel.RouteViewModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,18 +21,19 @@ import java.util.ResourceBundle;
 
 public class DetailController implements Initializable, EventHandler<ActionEvent> {
     private static final Logger logger= LoggerFactory.getLogger(DetailController.class);
-    private tourinformanager tourinformanager=new tourinformanager();
-    private TMViewModel tmViewModel=new TMViewModel();
+    private ListViewModel listViewModel=new ListViewModel();
     public static String Tname;
+    DetailViewModel DViewModel=new DetailViewModel();
+    RouteViewModel routeViewModel=new RouteViewModel();
 
     @FXML
     private Label test;
     @FXML
-    private TextField Departure,Destination;
+    private TextField Departure,Destination,TourName;
     @FXML
     private TextArea Description;
     @FXML
-    private Button Update;
+    private Button Update,Quit;
     @FXML
     private AnchorPane thisPane;
 
@@ -40,9 +42,8 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         test.setText(Tname);
-        tourinformanager.settour(Tname);
-        Departure.setText(tourinformanager.getDeparture());
-        Destination.setText(tourinformanager.getDestination());
+        DViewModel.setDPDT(Tname);
+
 
     }
 
@@ -50,31 +51,51 @@ public class DetailController implements Initializable, EventHandler<ActionEvent
     @Override
     public void handle(ActionEvent event) {
        if(event.getSource()==Update){
-           if(Departure.getText()=="" || Destination.getText()==""){
-               logger.debug("error information is incomplete");
-               ErrorController.msg="information is incomplete";
-               try {
-                   WindowController.Windowlunch("error.fxml",400,300);
-               } catch (Exception e) {
-                   e.printStackTrace();
-               }
-           }else {
-               tmViewModel.UPdateT(Departure.getText(),Destination.getText(),tourinformanager.TourId);
+
+           if(Departure.getText()!=""&&Departure.getText()!=null){
+               DViewModel.UpdateTourDP(Departure.getText());
+               routeViewModel.deleteImage(Tname);
+           }
+           if(Destination.getText()!=""&&Destination.getText()!=null){
+              DViewModel.UpdateTourDT(Destination.getText());
+               routeViewModel.deleteImage(Tname);
+           }
 
                if(Description.getText()!=null && Description.getText()!=""){
-                   tmViewModel.UPdataTDS(Description.getText(),tourinformanager.TourId);
-
-
+                   DViewModel.UpdateDS(Description.getText());
                }
-               tourinformanager.settour(Tname);
-               tourinformanager.BuildTourDescription();
-               DescriptionController.descriptionViewModel.Description.set(tourinformanager.FinalDescription);
-           }
+
+
+               if(TourName.getText()!=null&&TourName.getText()!=""){
+                   int i=listViewModel.CheckName(TourName.getText());
+                   if(i==0){
+                       routeViewModel.deleteImage(Tname);
+                       Tname=TourName.getText();
+                       DViewModel.UpdateTourName(TourName.getText());
+
+                   }else {
+                       logger.debug("error TourName is already exists");
+                       ErrorController.msg="TourName is already exists";
+                       try {
+                           WindowController.Windowlunch("error.fxml",400,300);
+                       } catch (Exception e) {
+                           e.printStackTrace();
+                       }
+                   }
+               }
+
+                    Departure.setText("");
+                   Destination.setText("");
+                   TourName.setText("");
+                   Description.setText("");
+               test.setText(Tname);
+               DViewModel.resetDescription(Tname);
        }
 
-
-        stage=(Stage) thisPane.getScene().getWindow();
-        stage.close();
+       if(event.getSource()==Quit) {
+           stage = (Stage) thisPane.getScene().getWindow();
+           stage.close();
+       }
     }
 
 

@@ -17,10 +17,11 @@ public class logsinformanager {
 
     public void setLogslist(){
         for (int i=0;i<Logsinforlist.get(3).size();i++){
-            this.Logslist.add(new TourLogs(Logsinforlist.get(0).get(i),Logsinforlist.get(1).get(i),
+           this.Logslist.add(new TourLogs(Logsinforlist.get(0).get(i),Logsinforlist.get(1).get(i),
                     Logsinforlist.get(2).get(i),Logsinforlist.get(3).get(i),
                     Logsinforlist.get(4).get(i),Logsinforlist.get(5).get(i),
-                    Logsinforlist.get(6).get(i)));
+                    Logsinforlist.get(6).get(i),Logsinforlist.get(7).get(i)));
+
         }
     }
 

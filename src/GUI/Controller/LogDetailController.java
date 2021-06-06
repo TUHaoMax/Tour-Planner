@@ -24,7 +24,7 @@ public class LogDetailController implements Initializable, EventHandler<ActionEv
     @FXML
     private ChoiceBox<String> WeatherCB;
     @FXML
-    private TextField Duration,Distance;
+    private TextField Duration,Distance,Transport;
     @FXML
     private Button update;
     @FXML
@@ -55,23 +55,25 @@ public class LogDetailController implements Initializable, EventHandler<ActionEv
         if(event.getSource()==update){
             if(Duration.getText()!="" && Duration.getText()!=null){
                tableViewModel.duration_up(Time.valueOf(Duration.getText()),LogID);
-               logger.debug("Duration update: {}",Duration.getText());
             }
             if(Distance.getText()!="" && Distance.getText()!=null){
                 tableViewModel.distance_up(Integer.parseInt(Distance.getText()),LogID);
-                logger.debug("Distance update: {}",Distance.getText());
+
             }
             if(Date.getValue()!=null){
                 tableViewModel.date_up(java.sql.Date.valueOf(Date.getValue().toString()),LogID);
-                logger.debug("Date update: {}",Date.getValue());
+
             }
             if(Rating.getValue()!=null && Rating.getValue()!=0){
                 tableViewModel.rating_up(Rating.getValue(),LogID);
-                logger.debug("Rating update: {}",Rating.getValue());
+
             }
             if(WeatherCB.getValue()!=null){
                 tableViewModel.weather_up(WeatherCB.getValue(),LogID);
-                logger.debug("Weather update: {}",WeatherCB.getValue());
+
+            }
+            if(Transport.getText()!=null&&Transport.getText()!=""){
+                tableViewModel.transport_up(Transport.getText(),LogID);
             }
          TableController.tableViewModel.settourLogs(TourID);
         }
@@ -83,6 +85,5 @@ public class LogDetailController implements Initializable, EventHandler<ActionEv
 
     private void ChoiceWeather(ActionEvent event){
         currentweather=WeatherCB.getValue();
-        System.out.println(currentweather);
     }
 }

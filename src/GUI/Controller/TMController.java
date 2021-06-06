@@ -1,6 +1,7 @@
 package GUI.Controller;
 
-import BusinessLayer.tourinformanager;
+import GUI.VIewModel.DetailViewModel;
+import GUI.VIewModel.RouteViewModel;
 import GUI.VIewModel.TMViewModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,8 +21,10 @@ import java.util.ResourceBundle;
 @Getter
 public class TMController implements Initializable, EventHandler<ActionEvent> {
     private static final Logger logger= LoggerFactory.getLogger(TMController.class);
-    tourinformanager tim=new tourinformanager();
+
+    RouteViewModel routeViewModel=new RouteViewModel();
     TMViewModel tmViewModel=new TMViewModel();
+    DetailViewModel DVModel=new DetailViewModel();
 
     private static int TourID;
     private static String Tourname;
@@ -31,7 +34,7 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
     @FXML
     private ChoiceBox<String> WeatherCB;
     @FXML
-    private TextField Departure,Destination,Duration,Distance;
+    private TextField Departure,Destination,Duration,Distance,transport;
     @FXML
     private TextArea Description;
     @FXML
@@ -48,7 +51,6 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
     }
     private void ChoiceWeather(ActionEvent event){
         currentweather=WeatherCB.getValue();
-        System.out.println(currentweather);
     }
 
     @Override
@@ -63,18 +65,20 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
       if(event.getSource()==ADDTourinfor){
           if(!Departure.textProperty().getValue().equals("")){
               tmViewModel.UPdateTDP(Departure.getText(),TourID);
+              routeViewModel.deleteImage(Tourname);
           }
           if(!Destination.textProperty().getValue().equals("")){
               tmViewModel.UPdateTDT(Destination.getText(),TourID);
-
+              routeViewModel.deleteImage(Tourname);
           }
-          resetDescription();
+
+          DVModel.resetDescription(Tourname);
           Departure.setText("");
           Destination.setText("");
       }
 
             if (event.getSource() == ADDLog) {
-                if(Date.getValue()==null || Duration.getText()=="" ||Rating.getValue()==0 ||WeatherCB.getValue()==null||Distance.getText()==""){
+                if(Date.getValue()==null || Duration.getText()=="" ||Rating.getValue()==0 ||WeatherCB.getValue()==null||Distance.getText()==""||transport.getText()==""){
                     logger.debug("error Log information is incomplet");
                     ErrorController.msg="Log information is incomplete";
                     try {
@@ -84,7 +88,7 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
                     }
                 }else {
                     tmViewModel.insertLog(java.sql.Date.valueOf(Date.getValue().toString()), Time.valueOf(Duration.getText()),
-                            TourID, Rating.getValue(), WeatherCB.getValue(), Integer.parseInt(Distance.getText()));
+                            TourID, Rating.getValue(), WeatherCB.getValue(), Integer.parseInt(Distance.getText()),transport.getText());
 
                     TableController.tableViewModel.settourLogs(TourID);
                     Duration.setText("");
@@ -97,16 +101,11 @@ public class TMController implements Initializable, EventHandler<ActionEvent> {
                 if(Description.getText()!=""){
                     tmViewModel.UPdataTDS(Description.getText(),TourID);
 
-                    resetDescription();
+                    DVModel.resetDescription(Tourname);
                     Description.setText("");
                 }
             }
 
     }
 
-    private void resetDescription(){
-        tim.settour(Tourname);
-        tim.BuildTourDescription();
-        DescriptionController.descriptionViewModel.Description.set(tim.FinalDescription);
-    }
 }

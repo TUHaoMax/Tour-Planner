@@ -14,6 +14,8 @@ public interface SQL {
     String Tours_DT=" UPDATE toursinfor SET  destination=? WHERE id=? ";
 
     String Tours_DS="UPDATE toursinfor SET  description=? WHERE id=?";
+
+    String Tours_UP_Name="UPDATE toursinfor SET  name=? WHERE id=?";
     //Tours
 
     //Logs
@@ -21,7 +23,7 @@ public interface SQL {
 
     String Logs_selectall="SELECT * FROM logs order by id";
 
-    String Logs_insert="INSERT INTO logs(date, duration, tourid, rating, weather, distance)VALUES (?, ?, ?, ?, ?, ?)";
+    String Logs_insert="INSERT INTO logs(date, duration, tourid, rating, weather, distance, transport )VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     String Logs_Delete="DELETE FROM logs WHERE id=?";
 
@@ -36,4 +38,6 @@ public interface SQL {
     String Logs_weather_update="UPDATE logs SET weather=? WHERE id=?";
 
     String Logs_distance_update="UPDATE logs SET distance=? WHERE id=?";
+
+    String Logs_transport_update="UPDATE logs SET transport=? WHERE id=?";
 }

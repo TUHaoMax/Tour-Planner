@@ -30,7 +30,7 @@ public class TableController implements Initializable, EventHandler<ActionEvent>
     @FXML
     private Button logminus;
     @FXML
-    private TableColumn<TourLogs,String> Date,Time,Distance,Weather,Rating;
+    private TableColumn<TourLogs,String> Date,Time,Distance,Weather,Rating,Transport;
 
     private static int TourID;
     private static int LogID;
@@ -51,6 +51,7 @@ public class TableController implements Initializable, EventHandler<ActionEvent>
         Distance.setCellValueFactory(new PropertyValueFactory<>("Distance"));
         Weather.setCellValueFactory(new PropertyValueFactory<>("weather"));
         Rating.setCellValueFactory(new PropertyValueFactory<>("Rating"));
+        Transport.setCellValueFactory(new PropertyValueFactory<>("transport"));
 
         LogsLabel.textProperty().bind(tableViewModel.Loglabel);
         TableView.setItems(tableViewModel.getTourLogs());

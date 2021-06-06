@@ -20,9 +20,6 @@ class JsonParseTest {
         System.out.println(JsonParse.config());
     }
 
-    @Test
-    void test(){
-        JsonParse.findtest();
-    }
+
 
 }

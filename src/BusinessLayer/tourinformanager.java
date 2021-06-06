@@ -30,29 +30,34 @@ public class tourinformanager  {
         if(name!=null){
             tourinforlist= DataRst.gettourinforResultSet();
             index=tourinforlist.get(0).indexOf(name);
+           if(index>=0) {
+               if (tourinforlist.get(1).get(index) != null) {
+                   Departure = (String) tourinforlist.get(1).get(index);
+               } else {
+                   Departure = "";
+               }
+               if (tourinforlist.get(2).get(index) != null) {
+                   destination = (String) tourinforlist.get(2).get(index);
+               } else {
+                   destination = "";
+               }
 
-            if(tourinforlist.get(1).get(index)!=null){
-                Departure= (String) tourinforlist.get(1).get(index);
-            }else {
-                Departure="";
-            }
-           if(tourinforlist.get(2).get(index)!=null){
-               destination= (String) tourinforlist.get(2).get(index);
+
+               TourId = (int) tourinforlist.get(3).get(index);
+               Name = name;
+
+               if (tourinforlist.get(4).get(index) != null) {
+                   Description = (String) tourinforlist.get(4).get(index);
+               } else {
+                   Description = "There is currently no description";
+               }
+
+               tour = new Tour(name, Departure, destination, Description);
            }else {
-               destination="";
+               Departure = "";destination = "";Description = "There is currently no description"; Name = name;
+               TourId = 0;
+               tour = new Tour(name, Departure, destination, Description);
            }
-
-
-            TourId= (int) tourinforlist.get(3).get(index);
-            Name=name;
-
-            if( tourinforlist.get(4).get(index)!=null ){
-                Description=(String) tourinforlist.get(4).get(index);
-            }else {
-                Description="There is currently no description";
-            }
-
-           tour=new Tour(name,Departure,destination,Description);
         }
 
     }

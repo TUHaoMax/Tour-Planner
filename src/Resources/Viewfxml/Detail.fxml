@@ -23,13 +23,13 @@
                <children>
                   <VBox prefHeight="134.0" prefWidth="199.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="71.0" prefWidth="191.0" text="Departure" textFill="#2205ff" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="DPlabel" prefHeight="71.0" prefWidth="191.0" text="Departure" textFill="#2205ff" VBox.vgrow="ALWAYS" />
                         <TextField fx:id="Departure" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                   <VBox prefHeight="134.0" prefWidth="218.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="71.0" prefWidth="235.0" text="Destination" textFill="#cf0707" VBox.vgrow="ALWAYS" />
+                        <Label fx:id="DTlabel" prefHeight="71.0" prefWidth="235.0" text="Destination" textFill="#cf0707" VBox.vgrow="ALWAYS" />
                         <TextField fx:id="Destination" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
@@ -42,9 +42,10 @@
             </Label>
             <TextArea fx:id="Description" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <Button fx:id="Update" mnemonicParsing="false" onAction="#handle" text="Update" VBox.vgrow="ALWAYS" />
-            <Button mnemonicParsing="false" onAction="#handle" text="Quit" />
+            <Button fx:id="Quit" mnemonicParsing="false" onAction="#handle" text="Quit" />
             <Region prefHeight="9.0" prefWidth="400.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
+      <TextField fx:id="TourName" layoutX="164.0" layoutY="17.0" />
    </children>
 </AnchorPane>

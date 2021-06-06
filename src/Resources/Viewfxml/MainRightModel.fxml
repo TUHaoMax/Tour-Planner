@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="PaneRight" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainController">
+   <top>
+      <VBox prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Tour-Planner" textFill="#111111">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem fx:id="Export" mnemonicParsing="false" onAction="#handle" text="Export" />
+                        <MenuItem fx:id="Import" mnemonicParsing="false" onAction="#handle" text="import" />
+                        <MenuItem fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF report" />
+                        <MenuItem fx:id="summarizereport" mnemonicParsing="false" onAction="#handle" text="Report all" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Options">
+                     <items>
+                        <MenuItem mnemonicParsing="false"  />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </MenuBar>
+            <HBox alignment="TOP_RIGHT" spacing="10.0">
+               <children>
+                  <Button fx:id="MenuLeft" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="103.0" text="Left Model" />
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="mainlabel" prefHeight="25.0" prefWidth="83.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="minus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="35.0" text="-" />
+                  <Button fx:id="plus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="37.0" text="+" />
+                  <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours Name" />
+               </children>
+               <padding>
+                  <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />
+               </padding>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.7625418060200669" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <AnchorPane fx:id="rootinfor" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="442.0" prefWidth="389.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <TabPane prefHeight="200.0" prefWidth="200.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="Route">
+                                 <content>
+                                    <fx:include fx:id="RouteFX" source="Route.fxml" />
+                                 </content>
+                              </Tab>
+                              <Tab text="Description">
+                                 <content>
+                                    <fx:include fx:id="DescriptionFX" source="Description.fxml" />
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="EditTab" text="Edit">
+                                 <content>
+                                    <fx:include fx:id="TMfx" source="TM.fxml" />
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                        <fx:include fx:id="TableFX" source="Table.fxml" />
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="259.0">
+               <children>
+                  <VBox prefHeight="441.0" prefWidth="205.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="TourListLabel" prefHeight="24.0" prefWidth="205.0" text="Tours List" VBox.vgrow="ALWAYS" />
+                        <ListView fx:id="ListTours" prefHeight="417.0" prefWidth="205.0" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </center>
+   <bottom>
+      <Label BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

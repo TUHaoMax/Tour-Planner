@@ -12,6 +12,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
@@ -48,7 +50,9 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     @FXML
     private Label TourListLabel,mainlabel;
     @FXML
-    private Button plus,minus,edit;
+    private Button plus,minus,edit,MenuRight,MenuLeft;
+    @FXML
+    private BorderPane PaneRight,PaneLeft;
 
 
 
@@ -57,7 +61,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
     public static int currentLogId;
     int CheckTour=0;
     int n=0;
-
+    Stage stage;
 
 
     @Override
@@ -120,6 +124,18 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
         }
         if(actionEvent.getSource()==Import){
             IEVM.Import();
+        }
+
+        if(actionEvent.getSource()==MenuRight){
+            stage = (Stage) PaneLeft.getScene().getWindow();
+            stage.close();
+            WindowController.Windowswitch("MainRightModel.fxml",actionEvent,900,900);
+        }
+        if (actionEvent.getSource()==MenuLeft){
+            stage = (Stage) PaneRight.getScene().getWindow();
+            stage.close();
+            WindowController.Windowswitch("Main.fxml",actionEvent,900,900);
+
         }
 
     }

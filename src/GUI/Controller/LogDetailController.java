@@ -76,9 +76,13 @@ public class LogDetailController implements Initializable, EventHandler<ActionEv
                 tableViewModel.transport_up(Transport.getText(),LogID);
             }
          TableController.tableViewModel.settourLogs(TourID);
+                    Duration.setText("");
+                    Distance.setText("");
+                    Transport.setText("");
+        }else {
+            stage = (Stage) thisPane.getScene().getWindow();
+            stage.close();
         }
-        stage=(Stage) thisPane.getScene().getWindow();
-        stage.close();
     }
 
 

@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,6 +43,7 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
 
          Map.setImage(routeViewModel.image);
          Label.textProperty().addListener(new ChangeListener<String>() {
+             @SneakyThrows
              @Override
              public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                     if(Label.getText()!=null) {
@@ -74,31 +76,23 @@ public class RouteController implements Initializable, EventHandler<ActionEvent>
 
 
 
- private void MapCheck(){
+ private void MapCheck() throws IOException, InterruptedException {
      file=new File(Searchpath+Label.getText()+".jpg");
      if(file.exists()){
          logger.debug("have {}",Label.getText());
          logger.debug("{} ",path+Label.getText()+".jpg");
-         try {
+
              tempCard=ImageIO.read(file);
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
+
          image= SwingFXUtils.toFXImage(tempCard, null );
          Map.setImage(image);
      }else {
          routeViewModel.getMap();
-         try {
-             Thread.sleep(1000);
-         } catch (InterruptedException e) {
-             e.printStackTrace();
-         }
 
-         try {
+             Thread.sleep(1000);
+
              Thread.sleep(500);
-         } catch (InterruptedException e) {
-             e.printStackTrace();
-         }
+
          logger.debug("recheck");
          MapCheck();
      }

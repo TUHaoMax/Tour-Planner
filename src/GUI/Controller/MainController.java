@@ -84,11 +84,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
             if(CheckTour==1){
                 logger.debug("error {} already exists",Tourname.getText());
                 ErrorController.msg=Tourname.getText()+" already exists";
-                try {
                     WindowController.Windowlunch("error.fxml",400,300);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }else {
                 int i=listViewModel.addTour(Tourname.textProperty().getValue());
                 Tourname.setText("");

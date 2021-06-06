@@ -25,17 +25,20 @@ public class APPLauncher extends Application {
 
     public  void  showWindow() throws Exception {
         start(stage);
+        logger.debug("Window launch {}",fxmlname);
     }
 
 
 
     public void  switchWindow(ActionEvent event) throws Exception {
+        config= JsonParse.getConfig(JsonParse.readConfig());
+        path=config.ViewPath;
         Parent root = FXMLLoader.load(getClass().getResource(path+fxmlname));
         stage=(Stage) ((Node) event.getSource() ).getScene().getWindow();
-        stage.setTitle(fxmlname);
+        //stage.setTitle(fxmlname);
         stage.setScene(new Scene(root, v,v1));
-
         stage.show();
+        logger.debug("Switch to {}",fxmlname);
     }
 
 

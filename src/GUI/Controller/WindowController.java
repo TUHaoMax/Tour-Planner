@@ -13,9 +13,11 @@ import java.util.ResourceBundle;
 public class WindowController implements Initializable {
     private static final Logger logger= LoggerFactory.getLogger(WindowController.class);
 
-    public static void Windowswitch(String fxmlname, ActionEvent event)throws Exception{
+    public static void Windowswitch(String fxmlname, ActionEvent event,int V,int V1)throws Exception{
         APPLauncher Launcher=new APPLauncher();
        Launcher.fxmlname=fxmlname;
+        Launcher.v=V;
+        Launcher.v1=V1;
        Launcher.switchWindow(event);
        logger.debug("{} Window start",fxmlname);
     }

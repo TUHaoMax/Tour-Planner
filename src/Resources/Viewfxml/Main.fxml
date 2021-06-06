@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainController">
+<BorderPane fx:id="PaneLeft" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainController">
     <top>
         <VBox prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
@@ -33,12 +33,14 @@
                             <items>
                                 <MenuItem fx:id="Export" mnemonicParsing="false" onAction="#handle" text="Export" />
                                 <MenuItem fx:id="Import" mnemonicParsing="false" onAction="#handle" text="import" />
+                                <MenuItem fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF report" />
+                                <MenuItem fx:id="summarizereport" mnemonicParsing="false" onAction="#handle" text="Report all" />
                             </items>
                         </Menu>
 
-                        <Menu mnemonicParsing="false" text="Edit">
+                        <Menu mnemonicParsing="false" text="option">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Delete" />
+                                <MenuItem mnemonicParsing="false"  />
                             </items>
                         </Menu>
 
@@ -61,8 +63,7 @@
                      </font>
                   </Label>
                   <Region prefHeight="28.0" prefWidth="116.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="summarizereport" onAction="#handle" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="PDF" mnemonicParsing="false" onAction="#handle" text="PDF" />
+                  <Button fx:id="MenuRight" mnemonicParsing="false" onAction="#handle" text="Right Model" />
                     </children>
                     <padding>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />

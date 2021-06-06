@@ -12,8 +12,6 @@ public class DetailViewModel {
 
     public void setDPDT(String name){
         tourinformanager.settour(name);
-        System.out.println(tourinformanager.getName());
-        System.out.println(tourinformanager.getTourId());
 
     }
 

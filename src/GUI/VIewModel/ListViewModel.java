@@ -27,10 +27,15 @@ public class ListViewModel {
 
     public void obserlist(){
         tim=new tourinformanager();
-        if(tim.tourinforlist.size()!=0){
+        /*if(tim.tourinforlist.size()!=0){
             this.namelist.setAll(tim.tourinforlist.get(0));
+        }*/
+        if(tim.tourinforlist.get(0).size()!=0){
+            this.namelist.setAll(tim.tourinforlist.get(0));
+        }else {
+           // this.namelist.clear();
+            this.namelist.setAll("Empty list No Tour List");
         }
-
     }
 
 

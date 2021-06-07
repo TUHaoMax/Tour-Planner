@@ -2,6 +2,9 @@ package DataALayer;
 
 import APP.Config;
 import TourModels.JsonMsg;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -36,6 +39,13 @@ public class JsonParse {
         Type t = new TypeToken<List<String>>() {}.getType();
         List<String> messageList = gson.fromJson(msg, t);
         return messageList;
+    }
+
+    public static List<JsonMsg> JacksonGet(String msg) throws JsonProcessingException {
+        ObjectMapper mapper=new ObjectMapper();
+        TypeReference<List<JsonMsg>> t = new TypeReference<List<JsonMsg>>() {};
+        List<JsonMsg> jsonMsgs=mapper.readValue(msg,  t);
+        return jsonMsgs;
     }
 
     public static String config(){

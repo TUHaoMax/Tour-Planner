@@ -40,7 +40,7 @@
 
                         <Menu mnemonicParsing="false" text="option">
                             <items>
-                                <MenuItem mnemonicParsing="false"  />
+                                <MenuItem mnemonicParsing="false" />
                             </items>
                         </Menu>
 
@@ -57,13 +57,13 @@
                         <TextField fx:id="Tourname" prefHeight="25.0" prefWidth="149.0" promptText="Enter Tours Name" />
                         <Button fx:id="plus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="37.0" text="+" />
                         <Button fx:id="minus" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="35.0" text="-" />
-                  <Label fx:id="mainlabel" prefHeight="25.0" prefWidth="83.0" HBox.hgrow="ALWAYS">
+                  <Label fx:id="mainlabel" prefHeight="28.0" prefWidth="209.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="28.0" prefWidth="116.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="MenuRight" mnemonicParsing="false" onAction="#handle" text="Right Model" />
+                  <Region prefHeight="28.0" prefWidth="39.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="MenuRight" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="111.0" text="Right Model" />
                     </children>
                     <padding>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="9.0" />

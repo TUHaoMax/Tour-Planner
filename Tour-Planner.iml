@@ -48,5 +48,8 @@
     <orderEntry type="library" name="itextpdf-5.5.91" level="project" />
     <orderEntry type="library" name="layout-7.1.15" level="project" />
     <orderEntry type="library" name="kernel-7.1.15" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.12.3" level="project" />
+    <orderEntry type="library" name="jackson-core-2.12.3" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.12.3" level="project" />
   </component>
 </module>
